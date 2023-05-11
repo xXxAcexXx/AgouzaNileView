@@ -1,0 +1,178 @@
+/* Additional styles for review submission form */
+.submit-review-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.submit-review-container label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.submit-review-container input,
+.submit-review-container textarea {
+    width: 100%;
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-review-container textarea {
+    resize: none;
+    height: 150px;
+}
+
+.submit-review-container input[type="submit"] {
+    width: auto;
+    background-color: #f1c40f;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+.submit-review-container input[type="submit"]:hover {
+    background-color: #d4b106;
+    transform: scale(1.05);
+}
+@media screen and (max-width: 600px) {
+    .date-inputs {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .date-inputs .input-wrapper {
+        width: 100%; /* Make the input wrapper take the full width on smaller screens */
+    }
+    .info-bubbles {
+        flex-direction: column; /* Change the layout to a column direction on smaller screens */
+        gap: 10px; /* Adjust the gap between the bubbles */
+    }
+
+    .bubble {
+        width: 100px; /* Reduce the bubble size on smaller screens */
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: gold;
+        border-radius: 50%;
+        padding: 30px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+        text-align: center;
+    }
+
+    .bubble img {
+        width: 60px; /* Adjust the image size inside the bubble */
+        height: 60px;
+        margin-top: 5px; /* Adjust the image position */
+        top: 10px;
+        padding-top: 15px;
+    }
+
+    .button {
+        bottom: 10px; /* Adjust the call us button position on smaller screens */
+        right: 5px;
+        padding: 8px 16px; /* Adjust the button padding on smaller screens */
+        font-size: 14px; /* Adjust the font size on smaller screens */
+    }
+
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    .date-inputs {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .date-inputs .input-wrapper {
+        width: 100%; /* Make the input wrapper take the full width on smaller screens */
+    }
+    .info-bubbles {
+        flex-direction: column; /* Change the layout to a column direction on smaller screens */
+        gap: 10px; /* Adjust the gap between the bubbles */
+    }
+
+    .bubble {
+        width: 100px; /* Reduce the bubble size on smaller screens */
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: gold;
+        border-radius: 50%;
+        padding: 30px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+        text-align: center;
+    }
+
+    .bubble img {
+        width: 60px; /* Adjust the image size inside the bubble */
+        height: 60px;
+        margin-top: 5px; /* Adjust the image position */
+        top: 10px;
+        padding-top: 15px;
+    }
+
+    .button {
+        bottom: 10px; /* Adjust the call us button position on smaller screens */
+        right: 5px;
+        padding: 8px 16px; /* Adjust the button padding on smaller screens */
+        font-size: 14px; /* Adjust the font size on smaller screens */
+    }
+    
+}
+@media screen and (min-width: 768px) and (max-width: 992px)  {
+    .date-inputs {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .date-inputs .input-wrapper {
+        width: 100%; /* Make the input wrapper take the full width on smaller screens */
+    }
+    .info-bubbles {
+        flex-direction: column; /* Change the layout to a column direction on smaller screens */
+        gap: 10px; /* Adjust the gap between the bubbles */
+    }
+
+    .bubble {
+        width: 100px; /* Reduce the bubble size on smaller screens */
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: gold;
+        border-radius: 50%;
+        padding: 30px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+        text-align: center;
+    }
+
+    .bubble img {
+        width: 60px; /* Adjust the image size inside the bubble */
+        height: 60px;
+        margin-top: 5px; /* Adjust the image position */
+        top: 10px;
+        padding-top: 15px;
+    }
+
+    .button {
+        bottom: 10px; /* Adjust the call us button position on smaller screens */
+        right: 5px;
+        padding: 8px 16px; /* Adjust the button padding on smaller screens */
+        font-size: 14px; /* Adjust the font size on smaller screens */
+    }
+    
+}

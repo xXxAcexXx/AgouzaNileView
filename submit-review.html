@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Review - Agouza Nile View Apartment</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="submit-review.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="Capture.jpg" alt="Agouza Nile View Apartment Logo">
+        </div>
+    </header>
+
+    <main>
+        <section id="submit-review-section">
+            <h2>Thank you for staying at Agouza Nile View Apartment!</h2>
+            <p>We appreciate your feedback. Please submit your review below:</p>
+            <form id="submit-review">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <br>
+                <label for="country">Country:</label>
+                <input type="text" id="country" required>
+                <br>
+                <label for="message">Message:</label>
+                <textarea id="message" rows="4" required></textarea>
+                <br>
+                <label for="rating">Rating:</label>
+                <select id="rating" required>
+                    <option value="">Select a rating</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        &copy; Agouza Nile View Apartment 2023. All rights reserved.
+    </footer>
+</body>
+
+</html>
