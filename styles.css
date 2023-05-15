@@ -8,7 +8,7 @@ header {
     font-family: 'Gabriola'
     font-weight: bolder;
     width: 100%;
-    z-index: 1000;
+    z-index: 100;
     top: 0;
     left: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -79,6 +79,10 @@ body::before {
     cursor: not-allowed;
 }
 
+.button.book-now-button:enabled {
+    background-color: #429398;
+    cursor: pointer;
+}
 
 .logo img {
     max-height: 60px;
@@ -476,6 +480,7 @@ img {
     flex-direction: column;
     align-items: flex-start;
     position: relative; /* Add this to position the pseudo-element relative to the section */
+    height: 400px;
 }
 
 #availabilityimage::before {
@@ -497,7 +502,6 @@ img {
     font-size: 28px;
     color: black;
     font-style: thick;
-    text-align: center;
     position: relative;
 }
 
@@ -529,7 +533,7 @@ img {
     text-align: center;
 }
 
-.date-inputs input {
+.date-inputs input,#guests{
     border: 2px solid #ccc;
     border-radius: 5px;
     padding: 5px 5px;
@@ -568,7 +572,6 @@ img {
 
 
 .guests-input {
-
   cursor: pointer;
   background-color: white;
   border: 2px solid #ccc; /* Update border to match check-in/check-out inputs */
@@ -583,50 +586,8 @@ img {
   width: auto;
 }
 
-.guests-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 8px;
-  border-radius: 5px;
-  z-index: 1;
-}
-
-.guest-type {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-
-.guest-type span {
-  color: black;
-}
-
-.decrease,
-.increase {
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  user-select: none;
-  color: black;
-  padding: 0 4px;
-}
-
-.guest-count {
-  margin: 0 8px;
-  color: black;
-}
 .credentials-wrapper {
-  align-items: flex-start;
+  align-items: center;
   border: 2px solid silver;
   border-radius: 10px;
   padding: 10px 16px;
@@ -635,27 +596,33 @@ img {
   margin-bottom: 20px;
   display: inline-block;
   width: auto;
+  height: 250px;
   position: absolute;
-  left: 55%;
+  left: 80%;
   top: 20%;
   bottom: 5px;
-  margin-bottom: 10px;
+  z-index: 10;
   text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* Exotic Font */
+  background: rgba(255, 255, 255, 0.7); /* Add a semi-transparent white background */
+    
+  /* Hide until a date period is selected */
 }
 
-.credentials-wrapper label {
-    font-size: 16px;
-    text-align: center;
+.credentials-input-wrapper input{
+    background-color: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
 
 .credentials-wrapper p {
-  font-size: 18px;
+  font-size: 16px;
   color: black;
   text-align: center;
   margin-bottom: 20px;
   margin-top: 5px;
   font-weight: bold;
   font-style: italic;
+  text-align: center; /* Centered Text */
 }
 
 .credentials-wrapper input {
@@ -663,59 +630,62 @@ img {
   gap: 5px;
   color: black;
   margin-top: 5px;
-  transition: border-color 0.3s;
-  display: inline-block; /* Updated to display inputs next to each other */
-  margin-right: 5px; /* Added margin for spacing between inputs */
-  border-top: none; /* No top border */
-  border-right: none; /* No right border */
-  border-bottom: 1px solid #ccc; /* Bottom border with #ccc color */
-  border-left: none; /* No left border */
+  display: flex; /* Align email and whatsapp inputs horizontally */
+  margin-right: 5px; 
+  margin-bottom: 20px; /* 20px distance between inputs and the button */
 }
 
 .credentials-wrapper input:focus {
   border-color: #fd7e14;
-  border-top: none; /* No top border */
-  border-right: none; /* No right border */
-  border-left: none; /* No left border */
+}
+
+#book-now-button {
+  disabled: true; /* Button is disabled until conditions are met */
 }
 
 
 
 /* Add these styles to your CSS */
-.price-info {
-    display: flex;
-    text-align: center;
-    padding: 10px;
+
+.price-info, .error-message-container {
+    position: relative; /* Position the elements fixed on the screen */
+    top: 47px; /* Position at 50% from the top */
+    left: 110%; /* Position at 50% from the left */
+    transform: translate(-25%, -25%); /* Shift the elements back by half of their width and height to center them */
+    background: rgba(255, 255, 255, 0.7); /* Add a semi-transparent white background */
+    border-radius: 10px; /* Add some border radius */
+    border-color: 2px solid #ccc;
+    padding: 20px; /* Add some padding */
+    width: 400px; /* Set a width */
+    height: 200px;
+    max-width: 400px;
     font-size: 18px;
-    margin: 20px 0;
+    box-sizing: border-box; /* Make sure padding and border are included in element's total width and height */
+    text-align: center; /* Center the text */
+    z-index: 11; /* Make sure the elements appear on top of other elements */
+    display: none;
 }
 
-.error-message {
-    display: flex;
-    text-align: center;
-    font-size: 18px;
-    margin: 20px 0;
-}
-
-.price-info span, .error-message span {
+.price-info span {
     color: black; /* Adjust the color as needed */
 }
 
 .price-info {
     color: green;
-    text-align: center;
+    font-weight: bold;
+    width: auto;
 }
 
 .error-message {
     color: red;
+    font-weight: bold;
+    width: auto;
+    padding-top: 25px;
 }
 
-.error-message-container {
-    max-width: 100%;
-    overflow: auto;
+/*.error-message-container {
     padding: 10px 0;
     margin-bottom: 20px;
-    margin-right: 200px;
     text-align: center;
 }
 
@@ -736,4 +706,120 @@ img {
 
 .popup-content p {
   margin-bottom: 10px;
+}
+*/
+
+$primary: black;
+$secondary: #429391;
+$white: #429391;
+$gray: #429391;
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid black;
+  outline: 0;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #429391;
+  padding: 2px 0;
+  background: transparent;
+  transition: border-color 0.0000001s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: black;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $primary;
+    font-weight:700;    
+  }
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $primary,$secondary);
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}
+
+/* The popup */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* The popup content */
+
+
+.popup-content {
+  background-color: white;
+  margin: 0; /* Updated */
+  padding: 5px;
+  padding-top: 15px;
+  border: 2px solid #ccc;
+  width: 30%; /* Updated */
+  height: auto; /* Updated */
+  position: absolute; /* Updated */
+  top: 50%; /* Updated */
+  left: 50%; /* Updated */
+  transform: translate(-50%, -50%); /* Updated */
+  overflow: auto;
+  max-height: 90vh;
+}
+/* The close button */
+.close {
+  color: #aaa;
+  float: right;
+  position: relative;
+  top: -15px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
