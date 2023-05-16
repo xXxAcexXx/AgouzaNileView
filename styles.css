@@ -469,6 +469,8 @@ img {
 /* Google Maps section */
 #location {
     object-fit: fill;
+    padding-right: 0px;
+    padding-left: 0px ;
 }
 #location #map {
     height: 400px;
