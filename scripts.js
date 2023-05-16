@@ -22,7 +22,7 @@ function initMap() {
 function loadGoogleMapsApi(callback) {
   if (!window.google) {
     const googleMapsApiScript = document.createElement("script");
-    googleMapsApiScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ_crc6005MzcOI7mqNdmQLgVauV8kLus&callback=" + callback;
+    googleMapsApiScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCSqTA1pqLElmDKcdgqAcPG-uMrAznKAlQ&callback=" + callback;
     document.body.appendChild(googleMapsApiScript);
   } else {
     window[callback]();
