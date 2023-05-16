@@ -281,3 +281,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     loadFlatpickr(initializeFlatpickr);
 });
+
+document.querySelectorAll('[aria-hidden="true"]').forEach(item => {
+
+
+  // or remove it
+  item.removeAttribute('aria-hidden');
+});
