@@ -12,39 +12,43 @@ window.addEventListener("DOMContentLoaded", () => {
         document.body.appendChild(flatpickrScript);
     }
 
-    const blockedDates = ["2023-05-10", "2023-05-11", "2023-05-12","2023-05-14","2023-05-16","2023-05-17"];
+    const blockedDates = ["2023-05-10", "2023-05-11", "2023-05-12","2023-05-14","2023-05-16","2023-05-17","2023-05-22"];
 
     let checkinDatepicker;
     let checkoutDatepicker;
 
     function initializeFlatpickr() {
-      const today = new Date();
-      const tomorrow = new Date(today);
-      tomorrow.setDate(today.getDate() + 1);
+        const today = new Date();
+        const twoDaysLater = new Date(today);
+        twoDaysLater.setDate(today.getDate() + 2);
+        const fiveDaysLater = new Date(today);
+        fiveDaysLater.setDate(today.getDate() + 5);
 
         checkinDatepicker = flatpickr("#checkin-date", {
-        minDate: "today",
-        defaultDate: today,
-        disable: blockedDates,
-        onChange: function(selectedDates, dateStr, instance) {
-          if (selectedDates.length > 0) {
-                const checkoutDateInstance = checkoutDatepicker;
-                checkoutDateInstance.set("minDate", selectedDates[0].fp_incr(1));
-                updateBookingStatus(checkinDatepicker,checkoutDatepicker);
-          }
-        },
+            minDate: twoDaysLater,
+            defaultDate: twoDaysLater,
+            disable: blockedDates,
+            onChange: function(selectedDates, dateStr, instance) {
+                if (selectedDates.length > 0) {
+                    const checkoutDateInstance = checkoutDatepicker;
+                    checkoutDateInstance.set("minDate", selectedDates[0].fp_incr(3));
+                    updateBookingStatus(checkinDatepicker,checkoutDatepicker);
+                }
+            },
         });
 
         checkoutDatepicker = flatpickr("#checkout-date", {
-        defaultDate: tomorrow,
-        disable: blockedDates,
-        onChange: function(selectedDates, dateStr, instance) {
-            if (selectedDates.length > 0) { 
-                updateBookingStatus(checkinDatepicker,checkoutDatepicker);
-            }
-        },
+            minDate: fiveDaysLater,
+            defaultDate: fiveDaysLater,
+            disable: blockedDates,
+            onChange: function(selectedDates, dateStr, instance) {
+                if (selectedDates.length > 0) { 
+                    updateBookingStatus(checkinDatepicker,checkoutDatepicker);
+                }
+            },
         });
     }
+
 
     function checkBlockedDates(startDate, endDate) {
         const start = new Date(startDate.latestSelectedDateObj);
@@ -53,6 +57,18 @@ window.addEventListener("DOMContentLoaded", () => {
             const blockedDate = new Date(date);
             return blockedDate >= start && blockedDate <= end;
         });
+    }
+
+    function discountpercent(days){
+        if (days >= 7 && days < 14) {
+            return 0.93;
+        } else if (days >= 14 && days < 30) {
+            return 0.90;
+        } else if (days >= 30) {
+            return 0.85;
+        }
+        else
+            return 1;
     }
 
     function calculatePrice(startDate, endDate) {
@@ -64,7 +80,12 @@ window.addEventListener("DOMContentLoaded", () => {
         const accommodationCost = Math.ceil(days * dailyRate );
         const extraGuestsCost = Math.ceil(days * extraGuestsFees);
         const totalPrice = Math.ceil(accommodationCost + cleaningFees + extraGuestsCost);
-        return { accommodationCost, totalPrice, days, dailyRate, cleaningFees, extraGuestsCost };
+        const discountedDailyRate = Math.ceil(dailyRate * discountpercent(days));
+        const discountedAccomodationCost = Math.ceil(days * discountedDailyRate);
+        const discountedTotalPrice = discountedAccomodationCost + cleaningFees + extraGuestsCost ;
+        console.log(discountedTotalPrice);
+
+        return { discountedDailyRate, discountedAccomodationCost, discountedTotalPrice, accommodationCost, totalPrice, days, dailyRate, cleaningFees, extraGuestsCost };
     }
 
     function isValidDateRange(startDate, endDate) {
@@ -134,6 +155,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         const blockedPeriods = getBlockedPeriods(checkinDateInstance.latestSelectedDateObj, checkoutDateInstance.latestSelectedDateObj);
 
+        extraGuestsFeesElement.innerHTML=''
         if (isValidDateRange(checkinDateInstance, checkoutDateInstance)) {
             if (checkBlockedDates(checkinDateInstance, checkoutDateInstance)) {
                 blockedMessage.style.display = "block";
@@ -142,11 +164,21 @@ window.addEventListener("DOMContentLoaded", () => {
                 credentialsElement.style.display="none";
             } else {
                 blockedMessage.style.display = "none";
-                const { accommodationCost, totalPrice, days, dailyRate, cleaningFees, extraGuestsCost } = calculatePrice(checkinDateInstance.latestSelectedDateObj, checkoutDateInstance.latestSelectedDateObj);
-                accommodationCostElement.innerHTML = `$<span>${dailyRate}</span> x <span>${days}</span> nights = $<span>${accommodationCost}</span>`;
+                const { discountedDailyRate, discountedAccomodationCost, discountedTotalPrice, accommodationCost, totalPrice, days, dailyRate, cleaningFees, extraGuestsCost } = calculatePrice(checkinDateInstance.latestSelectedDateObj, checkoutDateInstance.latestSelectedDateObj);
                 cleaningFeesElement.innerHTML = `$<span>${cleaningFees}</span>`;
-                extraGuestsFeesElement.innerHTML = guestCount > 5 ? `$25 * <span>${guestCount - 5}</span> guest(s) * <span>${days}</span> nights = $<span>${extraGuestsCost}</span>` : "$0"; // New Line
-                totalPriceElement.innerHTML = `$<span>${totalPrice}</span>`; // Updated Line
+                if (guestCount>5){
+                    extraGuestsFeesElement.innerHTML = guestCount > 5 ? `Extra guest(s) fees: $25 * <span>${guestCount - 5}</span> guest(s) * <span>${days}</span> nights = $<span>${extraGuestsCost}</span>` : "$0"; // New Line
+                }
+                if (days>=7){
+                    accommodationCostElement.innerHTML = `<span style="color:grey;text-decoration:line-through;">Accommodation cost: $<span style="color:grey;">${dailyRate}</span> x <span style="color:grey;">${days}</span> nights = $<span style="color:grey;">${accommodationCost}</span></span><br/>`;
+                    accommodationCostElement.innerHTML += `<span style="color:green;">Discounted Rate: $<span style="color:green;">${discountedDailyRate}</span> x <span style="color:green;">${days}</span> nights = $<span style="color:green;">${discountedAccomodationCost}</span></span>`;
+                    totalPriceElement.innerHTML = `<span style="color:grey;text-decoration:line-through;">Total Price: $<span style="color:grey;">${totalPrice}</span></span><br/>`;
+                    totalPriceElement.innerHTML += `<span style="color:green;">Discounted Total Price: $<span style="color:green;">${discountedTotalPrice}</span></span>`; 
+                }
+                    else {
+                        accommodationCostElement.innerHTML = `<span>Accommodation cost: $<span>${dailyRate}</span> x <span>${days}</span> nights = $<span>${accommodationCost}</span>`;
+                        totalPriceElement.innerHTML = `<span>Total Price: $<span>${totalPrice}</span>`; // Updated Line
+                }
                 priceInfo.style.display = "block";
                 credentialsElement.style.display="block";
                 if (validateCredentials(emailInput.value, whatsappInput.value)) {
@@ -192,13 +224,22 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     document.getElementById('book-now-button').addEventListener('click', function() {
-        sendBookingEmail();
+        //sendBookingEmail();
 
     // When the user clicks the button, open the popup
         popup.style.display = "block";
 
         // Clear the contents of the PayPal button container
         document.getElementById('paypal-button-container').innerHTML = '';
+
+        const { totalPrice, discountedTotalPrice, days } = calculatePrice(checkinDatepicker.latestSelectedDateObj, checkoutDatepicker.latestSelectedDateObj);
+        var paypalprice=0;
+        if (days>=7){
+            paypalprice = discountedTotalPrice;
+        }else{
+            paypalprice = totalPrice;
+        }
+                
 
         // Render the PayPal button inside the popup
         paypal.Buttons({
@@ -210,7 +251,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '0.01' // Replace this with the total price
+                            value: paypalprice.toFixed(2) // Replace this with the total price
                         }
                     }]
                 });
@@ -254,7 +295,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const checkinDateInstance = checkinDatepicker;
         const checkoutDateInstance = checkoutDatepicker;
 
-        const { accommodationCost, totalPrice, days, dailyRate, cleaningFees, extraGuestsCost } = calculatePrice(checkinDateInstance.latestSelectedDateObj, checkoutDateInstance.latestSelectedDateObj);
+        const { discountedDailyRate, discountedAccomodationCost, discountedTotalPrice, accommodationCost, totalPrice, days, dailyRate, cleaningFees, extraGuestsCost } = calculatePrice(checkinDateInstance.latestSelectedDateObj, checkoutDateInstance.latestSelectedDateObj);
         //const paymentStatus = document.getElementById('payment-status').value; // You might need to replace this depending on how you're tracking payment status
 
         emailjs.send("service_tc1e396", "template_8e34b28", {
@@ -263,8 +304,12 @@ window.addEventListener("DOMContentLoaded", () => {
             message: `Booking Details:
             Check-in Date: ${checkinDateInstance.latestSelectedDateObj}
             Check-out Date: ${checkoutDateInstance.latestSelectedDateObj}
+            Days: ${days}
             Guests: ${guests}
             Accomodation Cost: ${accommodationCost}
+            Discount daily rate: ${discountedDailyRate}
+            Discount Accomodation Cost: ${discountedAccomodationCost}
+            Discount Total Price: ${discountedTotalPrice}
             Extra Guests Fees: ${extraGuestsCost}
             Total Price: ${totalPrice}
             Whatsapp: ${whatsapp}
@@ -283,8 +328,5 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 document.querySelectorAll('[aria-hidden="true"]').forEach(item => {
-
-
-  // or remove it
-  item.removeAttribute('aria-hidden');
+    item.removeAttribute('aria-hidden');
 });

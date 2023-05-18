@@ -22,7 +22,6 @@ body {
     background-color: white;
     font-family: 'Gabriola'
     font-weight: bolder;
-    aria-hidden= false;
 }
 footer {
     padding: 15px;
@@ -243,13 +242,13 @@ section::after {
     opacity: 0.75;
 }*/
 
-#description h2{
+#description h1{
     font-size: 32px;
     color: black;
     text-align: flex-start;
 }
 
-#description h3 {
+#description h2 {
     font-size: 24px;
     color: black;
     display: inline-block;
@@ -433,6 +432,14 @@ img {
   font-size: 18px;
 }
 
+.review-logo {
+  position: relative;
+  width: 70px; /* Adjust as needed */
+  height: 60px; /* Adjust as needed */
+  left: 80%;
+}
+
+
 /* Captions Section */
 .info-bubbles {
 
@@ -484,7 +491,7 @@ img {
     flex-direction: column;
     align-items: flex-start;
     position: relative; /* Add this to position the pseudo-element relative to the section */
-    height: 400px;
+    height: 500px;
 }
 
 #availabilityimage::before {
@@ -661,7 +668,8 @@ img {
     border-color: 2px solid #ccc;
     padding: 20px; /* Add some padding */
     width: 400px; /* Set a width */
-    height: 200px;
+    height: auto;
+    max-height: 250px;
     max-width: 400px;
     font-size: 18px;
     box-sizing: border-box; /* Make sure padding and border are included in element's total width and height */
@@ -675,7 +683,7 @@ img {
 }
 
 .price-info {
-    color: green;
+    color: black;
     font-weight: bold;
     width: auto;
 }

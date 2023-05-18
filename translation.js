@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const lang = this.getAttribute('data-lang');
       const buttonText = this.textContent;
       document.querySelector('.language-change-button').textContent = buttonText;
+      document.querySelector('.language-dropdown-content').style.display = 'none';
 
       // Add the elements you want to translate inside this array
       const elementsToTranslate = [
@@ -32,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
         { selector: '#li-4', originalText: 'Location'},
         { selector: '#li-5', originalText: 'Availability'},
 
-        { selector: '#description h2', originalText: 'Welcome to our Cozy Home' },
-        { selector: '#description h3', originalText: 'Experience unparalleled Nile views from our centrally-located apartment, nestled amidst Egypt\'s most iconic landmarks. Immerse yourself in a captivating fusion of breathtaking panoramas and cultural treasures, all at your doorstep'},
+        { selector: '#description h1', originalText: 'Welcome to our Cozy Home' },
+        { selector: '#description h2', originalText: 'Experience unparalleled Nile views from our centrally-located apartment, nestled amidst Egypt\'s most iconic landmarks. Immerse yourself in a captivating fusion of breathtaking panoramas and cultural treasures, all at your doorstep'},
         
         { selector: '#li1', originalText: 'Open view on the Nile from all rooms'},
         { selector: '#li2', originalText: 'Fully air-conditioned spacious rooms and modern ameneties' },
@@ -73,9 +74,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         { selector: '#l3', originalText: 'Guests'},
 
-        { selector: '#prices1', originalText: 'Accomodation Cost'},
-        { selector: '#prices2', originalText: 'Cleaning fees'},
-        { selector: '#prices3', originalText: 'Total Price'},
+        { selector: '#credp1', originalText: 'Please provide your Email'},
+        { selector: '#credp2', originalText: 'and / or Whatsapp number'},
+
+        //{ selector: '#prices1', originalText: 'Accomodation Cost'},
+        //{ selector: '#prices2', originalText: 'Cleaning fees'},
+        { selector: '#book-now-button', originalText: 'Book now'},
 
         { selector: '#blocked-message', originalText: 'The dates to are not available. Please select other dates'},
 
