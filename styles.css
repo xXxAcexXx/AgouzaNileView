@@ -23,6 +23,9 @@ body {
     font-family: 'Gabriola'
     font-weight: bolder;
 }
+*{
+    transition:all 0.3s ease-in-out;
+}
 footer {
     padding: 15px;
     display: flex;
@@ -453,23 +456,32 @@ img {
 }
 
 .bubble {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #429391;
-  border-radius: 50%;
-  padding: 20px;
-  width: 150px;
-  height: 150px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #429391;
+    color: #eee;
+    border-radius: 50%;
+    padding: 55px;
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-size: 14px;
+
 }
 
 .bubble img {
-  max-width: 50px;
-  max-height: 50px;
-  margin-bottom: 10px;
+    max-width: 50px;
+    max-height: 50px;
+    margin-bottom: 10px;
+    filter: invert(1);
+}
+
+.bubble p {
+    margin: 0;
 }
 
 .bubble:hover{
