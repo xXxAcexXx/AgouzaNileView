@@ -12,7 +12,21 @@ window.addEventListener("DOMContentLoaded", () => {
         document.body.appendChild(flatpickrScript);
     }
 
-    const blockedDates = ["2023-05-10", "2023-05-11", "2023-05-12","2023-05-14","2023-05-16","2023-05-17","2023-05-22"];
+    function formatDate(date) {
+        let d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2) 
+            month = '0' + month;
+        if (day.length < 2) 
+            day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+
+    const blockedDates = ["2023-05-10", "2023-05-11", "2023-05-12","2023-05-14","2023-05-16","2023-05-17","2023-05-27"];
 
     let checkinDatepicker;
     let checkoutDatepicker;
@@ -28,19 +42,35 @@ window.addEventListener("DOMContentLoaded", () => {
             minDate: twoDaysLater,
             defaultDate: twoDaysLater,
             disable: blockedDates,
+
+            onDayCreate: function(dObj, dStr, fp, dayElem){
+                // If this day is in the blockedDates array, add a title
+                if (blockedDates.includes(formatDate(dayElem.dateObj))){
+                    dayElem.title = "Oops! Apartment's already booked";
+                }
+            },
+            
             onChange: function(selectedDates, dateStr, instance) {
                 if (selectedDates.length > 0) {
-                    const checkoutDateInstance = checkoutDatepicker;
-                    checkoutDateInstance.set("minDate", selectedDates[0].fp_incr(3));
+                    //const checkoutDateInstance = checkoutDatepicker;
+                    //checkoutDateInstance.set("minDate", selectedDates[0].fp_incr(3));
                     updateBookingStatus(checkinDatepicker,checkoutDatepicker);
                 }
             },
         });
 
         checkoutDatepicker = flatpickr("#checkout-date", {
-            minDate: fiveDaysLater,
-            defaultDate: fiveDaysLater,
+            minDate: twoDaysLater,
+            //defaultDate: fiveDaysLater,
             disable: blockedDates,
+
+            onDayCreate: function(dObj, dStr, fp, dayElem){
+                // If this day is in the blockedDates array, add a title
+                if (blockedDates.includes(formatDate(dayElem.dateObj))){
+                    dayElem.title = "Oops! Apartment's already booked";
+                }
+            },
+
             onChange: function(selectedDates, dateStr, instance) {
                 if (selectedDates.length > 0) { 
                     updateBookingStatus(checkinDatepicker,checkoutDatepicker);
@@ -143,8 +173,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const extraGuestsFeesElement = document.getElementById("extra-guests-fees"); // New Line
         const guestCount = document.getElementById("guests").value; // New Line
         const credentialsElement = document.getElementById("cred-wrapper");
-        const emailInput = document.getElementById('email');
-        const whatsappInput = document.getElementById('whatsapp');
+        const discountdisplay = document.getElementById('discount-banner')
 
         if (!checkinDatepicker || !checkoutDatepicker) {
             return;
@@ -162,6 +191,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 priceInfo.style.display = "none";
                 bookNowButton.disabled = true;
                 credentialsElement.style.display="none";
+                discountdisplay.style.display = "block";
             } else {
                 blockedMessage.style.display = "none";
                 const { discountedDailyRate, discountedAccomodationCost, discountedTotalPrice, accommodationCost, totalPrice, days, dailyRate, cleaningFees, extraGuestsCost } = calculatePrice(checkinDateInstance.latestSelectedDateObj, checkoutDateInstance.latestSelectedDateObj);
@@ -176,21 +206,25 @@ window.addEventListener("DOMContentLoaded", () => {
                     totalPriceElement.innerHTML += `<span style="color:green;">Discounted Total Price: $<span style="color:green;">${discountedTotalPrice}</span></span>`; 
                 }
                     else {
+                        discountdisplay.style.display = "block";
                         accommodationCostElement.innerHTML = `<span>Accommodation cost: $<span>${dailyRate}</span> x <span>${days}</span> nights = $<span>${accommodationCost}</span>`;
                         totalPriceElement.innerHTML = `<span>Total Price: $<span>${totalPrice}</span>`; // Updated Line
                 }
+
                 priceInfo.style.display = "block";
                 credentialsElement.style.display="block";
-                if (validateCredentials(emailInput.value, whatsappInput.value)) {
+                bookNowButton.disabled = false;
+                /*if (validateCredentials(emailInput.value, whatsappInput.value)) {
                     // Enable 'Book Now' button
-                    bookNowButton.disabled = false;
+                bookNowButton.disabled = false;
                 } else {
                 // Disable 'Book Now' button
                 bookNowButton.disabled = true;
-                }
+                }*/
             }
         } 
         else {
+            discountdisplay.style.display = "block";
             blockedMessage.style.display = "none";
             priceInfo.style.display = "none";
             bookNowButton.disabled = true;
@@ -224,7 +258,12 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     document.getElementById('book-now-button').addEventListener('click', function() {
-        //sendBookingEmail();
+        
+        const emailInput = document.getElementById('email');
+        const whatsappInput = document.getElementById('whatsapp');
+        if(validateCredentials(emailInput.value, whatsappInput.value)) {
+            document.getElementById('cred-warning').style.display = 'none';
+            //sendBookingEmail();
 
     // When the user clicks the button, open the popup
         popup.style.display = "block";
@@ -264,6 +303,10 @@ window.addEventListener("DOMContentLoaded", () => {
                 });
             }
         }).render('#paypal-button-container'); // This function displays the PayPal button.
+    }
+    else {
+        document.getElementById('cred-warning').style.display = 'block';
+    }
     });
 
     /*bookNowButton = document.getElementById("book-now-button").addEventListener('mouseenter', function() {
@@ -325,8 +368,4 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     loadFlatpickr(initializeFlatpickr);
-});
-
-document.querySelectorAll('[aria-hidden="true"]').forEach(item => {
-    item.removeAttribute('aria-hidden');
 });
