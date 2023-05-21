@@ -22,7 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
       const lang = this.getAttribute('data-lang');
       const buttonText = this.textContent;
       document.querySelector('.language-change-button').textContent = buttonText;
-      document.querySelector('.language-dropdown-content').style.display = 'none';
+      
+      document.querySelector('.language-change-button').addEventListener('click', function(e) {
+        e.preventDefault();
+        const dropdownContent = document.querySelector('.language-dropdown-content');
+        dropdownContent.style.display = dropdownContent.style.display === 'none' ? 'block' : 'none';
+      });
 
       // Add the elements you want to translate inside this array
       const elementsToTranslate = [
@@ -81,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
         //{ selector: '#prices2', originalText: 'Cleaning fees'},
         { selector: '#book-now-button', originalText: 'Book now'},
 
+        { selector: '#cred-warning', originalText: 'Email or Whatsapp needed for booking 😊'},
         { selector: '#blocked-message', originalText: 'The dates to are not available. Please select other dates'},
 
        // { selector: 'your_selector_here', originalText: 'original_text_here' },
