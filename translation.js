@@ -88,7 +88,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         { selector: '#cred-warning', originalText: 'Email or Whatsapp needed for booking 😊'},
         { selector: '#blocked-message', originalText: 'The dates to are not available. Please select other dates'},
-
+        { selector: '#enquiryTitle', originalText: 'Contact Us'},
+        { selector: '#enquiryName', originalText: 'Name'},
+        { selector: '#enquiryEnquiry', originalText: 'Enquiry'},
+        { selector: '#enquirySubmit', originalText: 'Submit'},
        // { selector: 'your_selector_here', originalText: 'original_text_here' },
       ];
 

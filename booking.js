@@ -1,3 +1,5 @@
+document.cookie = "key=value; SameSite=None; Secure";
+
 window.addEventListener("DOMContentLoaded", () => {
 
     function loadFlatpickr(callback) {
@@ -327,6 +329,10 @@ window.addEventListener("DOMContentLoaded", () => {
     */
 
 
+    document.querySelector('.enquiries-form form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        //sendSubmitEmail();
+    });
 
     function sendBookingEmail() {
         const guests = document.getElementById('guests').value;
@@ -357,6 +363,32 @@ window.addEventListener("DOMContentLoaded", () => {
             Total Price: ${totalPrice}
             Whatsapp: ${whatsapp}
             Email: ${email}`
+            
+        })
+        //Payment Status: ${paymentStatus}`
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+            console.log('FAILED...', error);
+        });
+    }
+
+    function sendSubmitEmail() {
+
+        const name = document.getElementById('enquiryname').value;
+        const whatsapp = document.getElementById('enquirywhatsapp').value;
+        const email = document.getElementById('enquiryemail').value;
+        const message = document.getElementById('enquirymessage').value;
+        
+        emailjs.send("service_tc1e396", "template_8e34b28", {
+            from_name: 'AgouzaNileView',
+            to_name: 'Ahmed The Owner',
+            message: `Enquiry Details:
+            Name: ${name}
+            Whatsapp: ${whatsapp}
+            Email: ${email}
+
+            Enquiry: ${message}`
             
         })
         //Payment Status: ${paymentStatus}`
