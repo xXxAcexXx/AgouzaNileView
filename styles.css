@@ -5,7 +5,7 @@ header {
     position: fixed;
     background-color: white;
     justify-content: space-between;
-    font-family: 'Gabriola'
+    font-family: 'Gabriola';
     font-weight: bolder;
     width: 100%;
     z-index: 100;
@@ -20,28 +20,153 @@ body {
     padding: 0;
     position: relative;
     background-color: white;
-    font-family: 'Gabriola'
     font-weight: bolder;
 }
+
 *{
     transition:all 0.3s ease-in-out;
+
 }
 footer {
     padding: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: white;
     font-family: 'Gabriola';
     font-weight: bolder;
 }
 
-.footer-content {
+.footer-email-location {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding: 10px;
+  color: #429391;
+  margin-bottom: 80px;
+  width: 250px;
+}
+
+.footer-email-location div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-email-location img {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.footer-email-location p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.copyrights-logo {
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
 }
+
+.footer-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.field-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.enquiries-form label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.enquiries-form input[type="text"],
+.enquiries-form input[type="email"],
+.enquiries-form input[type="tel"] {
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 80%; /* adjust as necessary */
+}
+
+
+
+.enquiries-form {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background: white;
+  width: 80%; /* Change form width to 50% */
+  margin: auto;
+  color: #429391;
+  margin-left: 58%; /* Position form at the center */
+  transform: translateX(-50%);
+}
+
+.enquiries-form h2 {
+  text-align: center;
+  color: #429391;
+  text-decoration: underline;
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+
+.enquiries-form textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  display: block;
+}
+
+.enquiries-form input[type="submit"] {
+  background: #429391;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: block; /* To center align the button */
+  margin: auto;
+}
+
+
 
 body::before {
     content: "";
@@ -145,9 +270,11 @@ body::before {
   gap: 10px;
   align-items: center;
 }
+
 .whatsapp-number{
     margin-right: 10px;
 }
+
 .whatsapp-number:hover {
   transform: scale(1.08);
 }
@@ -155,6 +282,7 @@ body::before {
 .whatsapp-icon {
   width: 50px;
   height: 50px;
+  margin-top: 11px;
 }
 
 .language-dropdown {
@@ -168,6 +296,8 @@ body::before {
 .language-change-button {
   background-color: #429390;
   color: white;
+  font-family: 'Gabriola';
+  font-size: 16px;
   padding: 5px 10px;
   border: none;
   cursor: pointer;
@@ -241,7 +371,7 @@ section::after {
 }
 /* Description section 
 #description::before{
-    background-image: url(image4.jpg);
+    background-image: url(image4.webp);
     object-fit: fill;
     opacity: 0.75;
 }*/
@@ -250,6 +380,8 @@ section::after {
     font-size: 32px;
     color: black;
     text-align: center;
+    font-family: 'Gabriola';
+    text-decoration: underline;
 }
 
 #description h2 {
@@ -260,6 +392,7 @@ section::after {
     border: 2px solid #429391;
     border-radius: 5px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+
 }
 
 #description ul {
@@ -322,11 +455,11 @@ section::after {
 }
 
 /*#gallery::before {
-    background-image: url(image4.jpg);
+    background-image: url(image4.webp);
 }
 
 #reviews::before {
-    background-image: url(image4.jpg);
+    background-image: url(image4.webp);
 }
 
 #location::before {
@@ -335,7 +468,7 @@ section::after {
 
 
 #booking::before {
-    background-image: url(image1.jpg);
+    background-image: url(image1.webp);
 }
 */
 
@@ -509,7 +642,7 @@ img {
 
 #availabilityimage::before {
     content: "";
-    background-image: url(images/image10.JPG);
+    background-image: url(images/image10.webp);
     opacity: 0.55;
     background-size: cover;
     background-position: center;
@@ -528,10 +661,11 @@ img {
     position: relative;
     background: #429391;
     border-radius: 10px; /* Add some border radius */
-    border-color: 2px solid #ccc;
+    border: 2px solid #ccc;
     padding: 10px; /* Add some padding */
     width: 160px;
-    box-sizing: border-box; /* Make sure padding and border are included in element's total width and height */
+    box-sizing: border-box;
+    text-decoration: underline; /* Make sure padding and border are included in element's total width and height */
 }
 
 .input-wrapper {
@@ -901,16 +1035,51 @@ $gray: #429391;
     body {
         margin: 0;
         padding: 0;
-        font-size: 16px;
+        font-size: 10px;
     }
-    
+
     /* Header */
     .header {
         flex-direction: column;
+        padding: 0px;
     }
-    .logo {
-        margin-bottom: 20px;
+
+    .navigation li {
+        font-size: 11px;
+        gap: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
     }
+
+    .logo img {
+        margin-bottom: -20px;
+        max-height: 20px;
+
+    }
+    .whatsapp-icon {
+      margin-top: 5px;
+      width: 30px;
+      height: 30px;
+    }
+
+    .language-dropdown {
+      margin-right: 2px;
+      padding-right: 10px;
+    }
+
+    .language-change-button {
+      padding: 10px 10px;
+      width: auto;
+      height: 30px;
+      font-size: 11px;
+    }
+
+    /*.button {
+        padding: 2px 4px;
+        border-radius: 5px;
+        font-size: 11px;
+    }
+*/
     .navbar {
         flex-direction: column;
         align-items: center;
