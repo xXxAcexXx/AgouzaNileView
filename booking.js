@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const twoDaysLater = new Date(today);
         twoDaysLater.setDate(today.getDate() + 2);
         const fiveDaysLater = new Date(today);
-        fiveDaysLater.setDate(today.getDate() + 5);
+        fiveDaysLater.setDate(today.getDate() + 3);
 
         checkinDatepicker = flatpickr("#checkin-date", {
             minDate: twoDaysLater,
@@ -62,7 +62,7 @@ window.addEventListener("DOMContentLoaded", () => {
         });
 
         checkoutDatepicker = flatpickr("#checkout-date", {
-            minDate: twoDaysLater,
+            minDate: fiveDaysLater,
             //defaultDate: fiveDaysLater,
             disable: blockedDates,
 
@@ -75,6 +75,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             onChange: function(selectedDates, dateStr, instance) {
                 if (selectedDates.length > 0) { 
+ 
                     updateBookingStatus(checkinDatepicker,checkoutDatepicker);
                 }
             },

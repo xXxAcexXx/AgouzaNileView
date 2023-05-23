@@ -12,7 +12,7 @@ header {
     top: 0;
     left: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 2px #ccc;
+    border: 2px solid #ccc;
     
 }
 body {
@@ -389,7 +389,7 @@ section::after {
     color: black;
     display: inline-block;
     padding: 10px 20px;
-    border: 2px solid #429391;
+    border: 1px solid #429391;
     border-radius: 5px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 
@@ -479,7 +479,7 @@ section::after {
     gap: 15px;
 }
 .image-grid img {
-    border: 2px solid #429391;
+    border: 1px solid #429391;
     border-radius: 10px;
 }
 
@@ -508,7 +508,7 @@ img {
   position: relative;
   overflow: hidden;
   cursor: default;
-  border: 2px solid #429391;
+  border: 1px solid #429391;
 }
 
 .review:hover {
@@ -661,7 +661,7 @@ img {
     position: relative;
     background: #429391;
     border-radius: 10px;
-    border: 2px solid #ccc; /* Changed border color */
+    border: 1px solid #ccc; /* Changed border color */
     padding: 15px 25px; /* Added more padding */
     width: auto; /* Adjusted width */
     box-sizing: border-box;
@@ -686,7 +686,7 @@ img {
     margin-bottom: 20px;
     color: white;
     display: flex;
-    border: 2px solid #ccc; /* Thin grey border */
+    border: 1px solid #ccc; /* Thin grey border */
     border-radius: 50px; /* Cylindrical shape */
     padding: 8px 16px; /* Some padding to make it look better */
     background-color: #429391;
@@ -700,7 +700,7 @@ img {
 }
 
 .date-inputs input,#guests{
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px 5px;
     font-size: 14px;
@@ -740,7 +740,7 @@ img {
 .guests-input {
   cursor: pointer;
   background-color: white;
-  border: 2px solid #ccc; /* Update border to match check-in/check-out inputs */
+  border: 1px solid #ccc; /* Update border to match check-in/check-out inputs */
   border-radius: 5px;
   padding: 5px 5px;
   font-size: 14px;
@@ -754,7 +754,7 @@ img {
 
 .credentials-wrapper {
   align-items: center;
-  border: 2px solid silver;
+  border: 1px solid silver;
   border-radius: 10px;
   padding: 10px 16px;
   background-color: white;
@@ -820,7 +820,7 @@ img {
     transform: translate(-25%, -25%); /* Shift the elements back by half of their width and height to center them */
     background: rgba(255, 255, 255, 0.7); /* Add a semi-transparent white background */
     border-radius: 10px; /* Add some border radius */
-    border-color: 2px solid #ccc;
+    border: 1px solid #ccc;
     padding: 20px; /* Add some padding */
     width: 400px; /* Set a width */
     height: auto;
@@ -932,7 +932,7 @@ $gray: #429391;
   }
   padding-bottom: 6px;  
   font-weight: 700;
-  border-width: 3px;
+  border-width: 1px;
   border-image: linear-gradient(to right, $primary,$secondary);
   border-image-slice: 1;
 }
@@ -972,7 +972,7 @@ $gray: #429391;
   margin: 0; /* Updated */
   padding: 5px;
   padding-top: 15px;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   width: 30%; /* Updated */
   height: auto; /* Updated */
   position: absolute; /* Updated */
@@ -1008,7 +1008,7 @@ $gray: #429391;
   height: 100px;
   background: linear-gradient(120deg, #ccc, #429391, #ccc);
   background-size: 200% 200%;
-  border-color: solid 2px #ccc;
+  border-color: 1px solid #ccc;
   border-radius: 50%;
   color: #f8f8f8;
   display: flex;
@@ -1096,6 +1096,7 @@ $gray: #429391;
     flex-direction: row;
     justify-content: space-around;
     gap: 10px; 
+    margin-bottom: 50px;
   }
 
   .list-and-images {
@@ -1119,10 +1120,10 @@ $gray: #429391;
 
    .bubble {
     border-radius: 45%;
-    padding: 25px;
-    width: 80px;
-    height: 100px;
-    font-size: 10px;
+    padding: 15px;
+    width: 65px;
+    height: 65px;
+    font-size: 7px;
    }
 
    .bubble img {
@@ -1131,56 +1132,112 @@ $gray: #429391;
    }
 
     #availability h2 {
-        font-size: 24px;
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 15px;
     }
 
-    .date-inputs {
-        flex-direction: column;
+    .date-inputs, .input-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
     }
 
-    .input-wrapper {
-        width: 100%;
+    .input-wrapper label, .input-wrapper input, .input-wrapper select {
+        font-size: 12px;
+    }
+
+    #discount-banner {
+        height: 50px;
+        width: 50px;
+        font-size: 8px;
+        margin-bottom: 5px;
+    }
+
+     #prices, #errmsg {
+        text-align: center;
+        font-size: 12px;
+        left: 110px;
+    }
+
+    .credentials-wrapper {
+        padding: 3px 8px;
+        width: 253px;
+        height: 85px;
+        left: 35%;
+        top: 69%;
+    }
+
+    .credentials-wrapper input {
+        font-size: 10px;
+    }
+    .credentials-wrapper p {
+      font-size: 10px;
+    }
+
+    .credentials-wrapper #credp1,
+    .credentials-wrapper #credp2 {
+        display: inline; /* make them display in one line */
+    }
+    .credentials-wrapper .form__group {
+        display: flex;
+        justify-content: space-around; /* distribute items evenly */
+        flex-wrap: wrap; /* wrap items if they don't fit */
+    }
+    .credentials-wrapper .form__field {
+        flex-basis: calc(50% - 10px); /* adjust for margin */
         margin-bottom: 10px;
     }
 
-    .input-wrapper label {
-        font-size: 14px;
-    }
-
-    .input-wrapper input, 
-    .input-wrapper select {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    #discount-banner p,
-    #cred-wrapper p,
-    #prices p {
-        font-size: 14px;
-    }
-
-    .form__field {
-        font-size: 14px;
-    }
-
     #book-now-wrapper {
-        width: 100%;
         text-align: center;
     }
 
     .book-now-button {
         font-size: 14px;
         padding: 10px 20px;
-    }
-
-    #errmsg .error-message {
-        font-size: 14px;
+        display: block;
+        margin: auto;
     }
 
     .popup-content {
-        width: 90%;
+        width: 58%;
+        margin: auto;
     }
 
+    .copyrights-logo p{
+        font-size: 10px;
+    }
+
+    .enquiries-form label {
+        margin-bottom: 0px;
+        font-size: 10px;
+    }
+
+    .enquiries-form input{
+        width: 91%;
+        font-size: 8px;
+    }
+
+    .enquiries-form textarea {
+        font-size: 10px;
+    }
+
+    .enquiries-form .input-row {
+        flex-direction: column;
+    }
+
+    .enquiries-form input[type="email"],
+    .enquiries-form input[type="tel"] {
+        width: 50%%; /* adjust as necessary */
+    }
+
+    .footer-email-location {
+        width: 188px;
+    }
+
+    .footer-email-location p{
+        font-size: 15px;
+    }
 @media screen and (min-width: 481px) and (max-width: 768px) {
     body {
         margin: 0;
