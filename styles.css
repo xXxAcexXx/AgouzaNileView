@@ -419,7 +419,7 @@ section::after {
     height: auto;
     object-fit: cover;
     border-radius: 20%;
-    box-shadow: 0 0 0 2px #429391, inset 0 0 0 2px #ccc, inset 0 0 0 2px white, inset 0 0 0 2px white;
+    box-shadow: 0 0 0 2px #429391;
     background-blend-mode: multiply;
 }
 
@@ -656,16 +656,19 @@ img {
 }
 
 #availability h2 {
-    font-size: 28px;
+    font-size: 32px;
     color: white;
     position: relative;
     background: #429391;
-    border-radius: 10px; /* Add some border radius */
-    border: 2px solid #ccc;
-    padding: 10px; /* Add some padding */
-    width: 200px;
+    border-radius: 10px;
+    border: 2px solid #ccc; /* Changed border color */
+    padding: 15px 25px; /* Added more padding */
+    width: auto; /* Adjusted width */
     box-sizing: border-box;
-    text-decoration: underline; /* Make sure padding and border are included in element's total width and height */
+    text-align: center; /* Center aligned text */
+    font-weight: bold; /* Made the text bold */
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2); /* Added a box-shadow for a 3D effect */
+    text-decoration: all;
 }
 
 .input-wrapper {
@@ -1031,81 +1034,153 @@ $gray: #429391;
   100% { transform: scale(1); }
 }
 
-@media screen and (max-width: 480px) {
-    body {
-        margin: 0;
-        padding: 0;
-        font-size: 10px;
-    }
+@media (max-width: 480px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    display: flex;
+    position: absolute !important;
+  }
 
-    /* Header */
-    .header {
-        flex-direction: column;
-        padding: 0px;
-    }
+  .logo img {
+    max-height: 40px;
+    margin-top: 17px;
+  }
 
-    .navigation li {
-        font-size: 11px;
-        gap: 0px;
-        margin-right: 0px;
-        margin-left: 0px;
-    }
+  .navigation {
+    display: none;
+  }
 
-    .logo img {
-        margin-bottom: -20px;
-        max-height: 20px;
+  .header-info {
+    order: 2;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-right: 10px;
+  }
 
-    }
-    .whatsapp-icon {
-      margin-top: 5px;
-      width: 30px;
-      height: 30px;
-    }
+  .language-change-button {
+    transition: background-color 0.3s, color 0.3s;
+  }
 
-    .language-dropdown {
-      margin-right: 2px;
-      padding-right: 10px;
-    }
+  .language-change-button:hover {
+    background-color: #333;
+    color: #fff;
+  }
 
-    .language-change-button {
-      padding: 10px 10px;
-      width: auto;
-      height: 30px;
-      font-size: 11px;
-    }
+  #description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    /*.button {
-        padding: 2px 4px;
-        border-radius: 5px;
-        font-size: 11px;
-    }
-*/
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-    }
-    .navbar li {
-        margin-bottom: 10px;
-    }
+  .list-and-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; 
+    width: 90%;
+  }
+
+  .image-container, .list-facilities-callus {
+    width: 100%;
+  }
+
+  .facilities {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px; 
+  }
+
+  .list-and-images {
+    flex-direction: column;
+  }
+
+  .image-container img {
+    text-align: center;
+    margin-left: 25px;
+  }
     
-    /* Banner */
-    .banner {
-        padding: 50px 20px;
-    }
-    .banner h1 {
+  #description ul {
+    font-size: 20px;
+  }
+
+   .review {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin: 10px 0;
+   }
+
+   .bubble {
+    border-radius: 45%;
+    padding: 25px;
+    width: 80px;
+    height: 100px;
+    font-size: 10px;
+   }
+
+   .bubble img {
+    max-width: 25px;
+    max-height: 35px;
+   }
+
+    #availability h2 {
         font-size: 24px;
     }
-    
-    /* Content */
-    .content {
-        padding: 20px;
+
+    .date-inputs {
+        flex-direction: column;
     }
-    
-    /* Footer */
-    .footer {
-        padding: 20px;
+
+    .input-wrapper {
+        width: 100%;
+        margin-bottom: 10px;
     }
-}
+
+    .input-wrapper label {
+        font-size: 14px;
+    }
+
+    .input-wrapper input, 
+    .input-wrapper select {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #discount-banner p,
+    #cred-wrapper p,
+    #prices p {
+        font-size: 14px;
+    }
+
+    .form__field {
+        font-size: 14px;
+    }
+
+    #book-now-wrapper {
+        width: 100%;
+        text-align: center;
+    }
+
+    .book-now-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    #errmsg .error-message {
+        font-size: 14px;
+    }
+
+    .popup-content {
+        width: 90%;
+    }
+
 @media screen and (min-width: 481px) and (max-width: 768px) {
     body {
         margin: 0;
