@@ -178,7 +178,7 @@ footer {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   padding-top: 150px;
   overflow: auto;
   left: 0;
@@ -197,6 +197,7 @@ footer {
   color: #429391;
   text-align: center;
 }
+
 
 .close-btn {
   color: #aaa;

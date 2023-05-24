@@ -19,8 +19,7 @@
     <script src="booking.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" crossorigin="anonymous"></script>
     <script src="translation.js"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=AZTvLfT2CbNadZbr7OSXI7Ty_mC1MHyUW0AdcUvrhTzVNgnlpY9fIlgu0Bg7gIOqPuTkgEzOB6LAecCR"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
 	<script type="text/javascript">
    	(function(){
       emailjs.init("HRT462aC4tQ-nXcd5"); // Replace YOUR_USER_ID with the User ID from your EmailJS account
@@ -52,7 +51,7 @@
     "longitude": 31.2140550
   },
   "url": "www.agouzanileview.com",
-  "paymentAccepted": "Paypal, Debit card and Credit card",
+  "paymentAccepted": "Paypal and Cash",
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": [
@@ -268,9 +267,9 @@
 			            <ul>
 			                <li id="li1">Open view on the Nile from all rooms</li>
 			                <li id="li2">Fully air-conditioned spacious rooms and modern ameneties</li>
-			                <li id="li3">Around 3.7 km from Tahrir Square, The Egyptian Museum and Cairo Tower</li>
+			                <li id="li3">Around 3.7 km from Tahrir square, The Egyptian museum and Cairo tower</li>
 			                <li id="li4">The apartment has a large living room, a salon, 2 bedrooms, a kitchen, a balcony and a bathroom</li>
-			                <li id="li5">Staff speaks Arabic, English and Spanish, Available for support 24/7</li>
+			                <li id="li5">Staff speaks Arabic, English and Spanish.Available for support 24/7</li>
 			            </ul>
 		        		<div class="facilities">
 						  <span>
@@ -539,25 +538,6 @@
 							<option value="7">7 Guests</option>
 						    <!-- Add as many options as necessary -->
 					 	</select>
-					 <!-- <div class="guests-input" id="guests">
-					    <span id="guests-text" class="guests-text"></span>
-					    <div class="guests-dropdown" id="guest-dropdown">
-					      <div class="guest-type">
-					        <span id="g1">Adults</span>
-					        <button class="decrease">-</button>
-					        <span class="guest-count">2</span>
-					        <button class="increase">+</button>
-					      </div>
-					      <div class="guest-type">
-					        <span id="g2">Children</span>
-					        <button class="decrease">-</button>
-					        <span class="guest-count">0</span>
-					        <button class="increase">+</button>
-					      </div>
-					    </div>
-					    <label id="c1" for="email" class="form__label">Email</label>
-		  				<label id="c2" for="whatsapp" class="form__label">Whatsapp number</label>
-					  </div>-->
 					</div>
 				</div>
 				<div class="discount-banner" id="discount-banner" style="display: none;">
@@ -584,12 +564,6 @@
 				<div id="errmsg" class="error-message-container" style="display: none;">
 					<p id="blocked-message" class="error-message" >Unfortunately, the apartment is not available for some days in the selected period. Please select another period</p>
 			    </div>
-			    <div id="paypal-popup" class="popup">
-				  <div class="popup-content">
-				    <span class="close">&times;</span>
-				    <div id="paypal-button-container"></div>
-				  </div>
-				</div>
 			</div>
 		</section>
     </main>
@@ -643,8 +617,15 @@
 	        <div id="enquiryModal" class="modal">
 			  <div class="modal-content">
 			    <span class="close-btn">&times;</span>
-			    <h2>Enquiry Submitted Successfully!</h2>
+			    <h2>Enquiry submitted successfully!</h2>
 			    <p>Thank you for reaching out. We'll get back to you soon.</p>
+			  </div>
+			</div>
+			<div id="bookingModal" class="modal">
+			  <div class="modal-content">
+			    <span id="booking-btn" class="close-btn">&times;</span>
+			    <h2>Booking request submitted successfully!</h2>
+			    <p>We will get back to you as soon as possible 😊.</p>
 			  </div>
 			</div>
 	    </div>

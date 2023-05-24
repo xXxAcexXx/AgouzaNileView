@@ -245,71 +245,21 @@ window.addEventListener("DOMContentLoaded", () => {
         updateBookingStatus(checkinDatepicker, checkoutDatepicker);
     });
 
-    var popup = document.getElementById("paypal-popup");
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the popup
-    span.onclick = function() {
-        popup.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the popup, close it
-    window.onclick = function(event) {
-        if (event.target == popup) {
-            popup.style.display = "none";
-        }
-    }
-
     document.getElementById('book-now-button').addEventListener('click', function() {
+        event.preventDefault();
         
         const emailInput = document.getElementById('email');
         const whatsappInput = document.getElementById('whatsapp');
         if(validateCredentials(emailInput.value, whatsappInput.value)) {
             document.getElementById('cred-warning').style.display = 'none';
             //sendBookingEmail();
-
+            openBookingModal();
     // When the user clicks the button, open the popup
-        popup.style.display = "block";
-
-        // Clear the contents of the PayPal button container
-        document.getElementById('paypal-button-container').innerHTML = '';
-
-        const { totalPrice, discountedTotalPrice, days } = calculatePrice(checkinDatepicker.latestSelectedDateObj, checkoutDatepicker.latestSelectedDateObj);
-        var paypalprice=0;
-        if (days>=7){
-            paypalprice = discountedTotalPrice;
-        }else{
-            paypalprice = totalPrice;
+        
         }
-                
-
-        // Render the PayPal button inside the popup
-        paypal.Buttons({
-            style: {
-                layout: 'vertical'
-                },
-            createOrder: function(data, actions) {
-                // This function sets up the details of the transaction, including the amount and line item details.
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: paypalprice.toFixed(2) // Replace this with the total price
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                // This function captures the funds from the transaction.
-                return actions.order.capture().then(function(details) {
-                    // This is where you can show a confirmation message to the buyer.
-                    alert('Transaction completed by ' + details.payer.name.given_name);
-                });
-            }
-        }).render('#paypal-button-container'); // This function displays the PayPal button.
-    }
-    else {
-        document.getElementById('cred-warning').style.display = 'block';
-    }
+        else {
+            document.getElementById('cred-warning').style.display = 'block';
+        }
     });
 
     /*bookNowButton = document.getElementById("book-now-button").addEventListener('mouseenter', function() {
@@ -402,6 +352,33 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    var bookingmodal = document.getElementById('bookingModal');
+
+    // Get close button
+    var closeBookingBtn = document.getElementById("booking-btn")
+
+    // Function to open modal
+    function openBookingModal() {
+      bookingmodal.style.display = 'block';
+    }
+
+    // Function to close modal
+    function closeBookingModal() {
+      bookingmodal.style.display = 'none';
+    }
+
+    // Listen for outside click
+    window.addEventListener('click', function(event) {
+      if (event.target == bookingmodal) {
+        bookingmodal.style.display = 'none';
+      }
+    });
+
+    // Listen for close click
+    closeBookingBtn.addEventListener('click', closeBookingModal);
+
+
+    //EnuiryModal
     var modal = document.getElementById('enquiryModal');
 
     // Get close button
