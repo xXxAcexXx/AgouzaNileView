@@ -13,14 +13,20 @@ header {
     left: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 2px solid #ccc;
-    
+    background-image: url('images/leaves.webp');
+    background-repeat: repeat;
+   
 }
+
 body {
     margin: 0;
     padding: 0;
     position: relative;
     background-color: white;
     font-weight: bolder;
+    background-image: url('images/leaves.webp');
+    background-repeat: repeat;
+    z-index: -1;
 }
 
 *{
@@ -35,6 +41,9 @@ footer {
     background-color: white;
     font-family: 'Gabriola';
     font-weight: bolder;
+    background-image: url('images/leaves.webp');
+    background-repeat: repeat;
+    z-index: -1;
 }
 
 .footer-email-location {
@@ -164,6 +173,42 @@ footer {
   cursor: pointer;
   display: block; /* To center align the button */
   margin: auto;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 150px;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #f4f4f4;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  color: #429391;
+  text-align: center;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover, .close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 
@@ -1016,7 +1061,7 @@ $gray: #429391;
   align-items: center;
   padding: 20px;
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.4;
   animation: gradient 3s linear infinite, pulse 2s infinite;
   cursor: none;
@@ -1034,7 +1079,7 @@ $gray: #429391;
   100% { transform: scale(1); }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 260px) (max-width: 479px){
   header {
     flex-direction: row;
     justify-content: space-between;
@@ -1238,43 +1283,212 @@ $gray: #429391;
     .footer-email-location p{
         font-size: 15px;
     }
-@media screen and (min-width: 481px) and (max-width: 768px) {
-    body {
-        margin: 0;
-        padding: 0;
-        font-size: 16px;
-    }
+}
+
+
+
+@media (max-width: 480px){
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    display: flex;
+    position: absolute !important;
+  }
+
+  .logo img {
+    width: 70%;
+    height: 40%;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .header-info {
+    order: 2;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-right: 10px;
+  }
+
+  .language-change-button {
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .language-change-button:hover {
+    background-color: #333;
+    color: #fff;
+  }
+
+  #description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .list-and-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; 
+    width: 90%;
+  }
+
+  .image-container, .list-facilities-callus {
+    width: 100%;
+  }
+
+  .facilities {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px; 
+    margin-bottom: 50px;
+  }
+
+  .list-and-images {
+    flex-direction: column;
+  }
+
+  .image-container img {
+    text-align: center;
+    margin-left: 25px;
+  }
     
-    /* Header */
-    .header {
+  #description ul {
+    font-size: 20px;
+  }
+
+   .review {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin: 10px 0;
+   }
+
+   .bubble {
+    border-radius: 45%;
+    padding: 15px;
+    width: 65px;
+    height: 65px;
+    font-size: 7px;
+   }
+
+   .bubble img {
+    max-width: 25px;
+    max-height: 35px;
+   }
+
+    #availability h2 {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .date-inputs, .input-wrapper {
         flex-direction: row;
+        justify-content: space-between;
     }
-    .logo {
-        margin-bottom: 0;
+
+    .input-wrapper label, .input-wrapper input, .input-wrapper select {
+        font-size: 12px;
     }
-    .navbar {
-        flex-direction: row;
-        justify-content: space-around;
+
+    #discount-banner {
+        height: 50px;
+        width: 50px;
+        font-size: 8px;
+        margin-bottom: 5px;
     }
-    .navbar li {
-        margin-bottom: 0;
+
+     #prices, #errmsg {
+        text-align: center;
+        font-size: 12px;
+        left: 110px;
     }
-    
-    /* Banner */
-    .banner {
-        padding: 50px 40px;
+
+    .credentials-wrapper {
+        padding: 3px 8px;
+        width: 253px;
+        height: 85px;
+        left: 35%;
+        top: 69%;
     }
-    .banner h1 {
-        font-size: 28px;
+
+    .credentials-wrapper input {
+        font-size: 10px;
     }
-    
-    /* Content */
-    .content {
-        padding: 40px;
+    .credentials-wrapper p {
+      font-size: 10px;
     }
-    
-    /* Footer */
-    .footer {
-        padding: 40px;
+
+    .credentials-wrapper #credp1,
+    .credentials-wrapper #credp2 {
+        display: inline; /* make them display in one line */
+    }
+    .credentials-wrapper .form__group {
+        display: flex;
+        justify-content: space-around; /* distribute items evenly */
+        flex-wrap: wrap; /* wrap items if they don't fit */
+    }
+    .credentials-wrapper .form__field {
+        flex-basis: calc(50% - 10px); /* adjust for margin */
+        margin-bottom: 10px;
+    }
+
+    #book-now-wrapper {
+        text-align: center;
+    }
+
+    .book-now-button {
+        font-size: 14px;
+        padding: 10px 20px;
+        display: block;
+        margin: auto;
+    }
+
+    .popup-content {
+        width: 58%;
+        margin: auto;
+    }
+
+    .copyrights-logo p{
+        font-size: 10px;
+    }
+
+    .enquiries-form label {
+        margin-bottom: 0px;
+        font-size: 10px;
+    }
+
+    .enquiries-form input{
+        width: 91%;
+        font-size: 8px;
+    }
+
+    .enquiries-form textarea {
+        font-size: 10px;
+    }
+
+    .enquiries-form .input-row {
+        flex-direction: column;
+    }
+
+    .enquiries-form input[type="email"],
+    .enquiries-form input[type="tel"] {
+        width: 50%%; /* adjust as necessary */
+    }
+
+    .footer-email-location {
+        width: 188px;
+    }
+
+    .footer-email-location p{
+        font-size: 15px;
     }
 }

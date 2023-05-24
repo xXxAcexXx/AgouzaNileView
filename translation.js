@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', function () {
       // Add the elements you want to translate inside this array
       const elementsToTranslate = [
 
-        { selector: '#li-1', originalText: 'Description'},
-        { selector: '#li-2', originalText: 'Gallery'},
-        { selector: '#li-3', originalText: 'Reviews'},
-        { selector: '#li-4', originalText: 'Location'},
-        { selector: '#li-5', originalText: 'Availability'},
+        { selector: '#li-1 a', originalText: 'Description'},
+        { selector: '#li-2 a', originalText: 'Gallery'},
+        { selector: '#li-3 a', originalText: 'Reviews'},
+        { selector: '#li-4 a', originalText: 'Location'},
+        { selector: '#li-5 a', originalText: 'Availability'},
 
         { selector: '#description h1', originalText: 'Welcome to our Cozy Home' },
         { selector: '#description h2', originalText: 'Experience unparalleled Nile views from our centrally-located apartment, nestled amidst Egypt\'s most iconic landmarks. Immerse yourself in a captivating fusion of breathtaking panoramas and cultural treasures, all at your doorstep'},

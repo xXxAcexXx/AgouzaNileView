@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const twoDaysLater = new Date(today);
         twoDaysLater.setDate(today.getDate() + 2);
         const fiveDaysLater = new Date(today);
-        fiveDaysLater.setDate(today.getDate() + 3);
+        fiveDaysLater.setDate(today.getDate() + 5);
 
         checkinDatepicker = flatpickr("#checkin-date", {
             minDate: twoDaysLater,
@@ -54,8 +54,8 @@ window.addEventListener("DOMContentLoaded", () => {
             
             onChange: function(selectedDates, dateStr, instance) {
                 if (selectedDates.length > 0) {
-                    //const checkoutDateInstance = checkoutDatepicker;
-                    //checkoutDateInstance.set("minDate", selectedDates[0].fp_incr(3));
+                    const checkoutDateInstance = checkoutDatepicker;
+                    checkoutDateInstance.set("minDate", selectedDates[0].fp_incr(3));
                     updateBookingStatus(checkinDatepicker,checkoutDatepicker);
                 }
             },
@@ -333,6 +333,8 @@ window.addEventListener("DOMContentLoaded", () => {
     document.querySelector('.enquiries-form form').addEventListener('submit', function(event) {
         event.preventDefault();
         //sendSubmitEmail();
+        openModal();
+
     });
 
     function sendBookingEmail() {
@@ -399,6 +401,31 @@ window.addEventListener("DOMContentLoaded", () => {
             console.log('FAILED...', error);
         });
     }
+
+    var modal = document.getElementById('enquiryModal');
+
+    // Get close button
+    var closeBtn = document.getElementsByClassName('close-btn')[0];
+
+    // Function to open modal
+    function openModal() {
+      modal.style.display = 'block';
+    }
+
+    // Function to close modal
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    // Listen for outside click
+    window.addEventListener('click', function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Listen for close click
+    closeBtn.addEventListener('click', closeModal);
 
     loadFlatpickr(initializeFlatpickr);
 });
