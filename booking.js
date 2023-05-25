@@ -252,7 +252,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const whatsappInput = document.getElementById('whatsapp');
         if(validateCredentials(emailInput.value, whatsappInput.value)) {
             document.getElementById('cred-warning').style.display = 'none';
-            //sendBookingEmail();
+            sendBookingEmail();
             openBookingModal();
     // When the user clicks the button, open the popup
         
@@ -282,7 +282,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector('.enquiries-form form').addEventListener('submit', function(event) {
         event.preventDefault();
-        //sendSubmitEmail();
+        sendSubmitEmail();
         openModal();
 
     });

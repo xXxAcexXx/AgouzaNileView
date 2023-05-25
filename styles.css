@@ -155,7 +155,6 @@ footer {
   margin-bottom: 5px;
 }
 
-
 .enquiries-form textarea {
   width: 100%;
   border: 1px solid #ccc;
@@ -619,7 +618,7 @@ img {
   position: relative;
   width: 70px; /* Adjust as needed */
   height: 60px; /* Adjust as needed */
-  left: 80%;
+  left: 84%;
 }
 
 
@@ -1080,7 +1079,7 @@ $gray: #429391;
   100% { transform: scale(1); }
 }
 
-@media (min-width: 260px) (max-width: 479px){
+@media (max-width: 480px){
   header {
     flex-direction: row;
     justify-content: space-between;
@@ -1091,8 +1090,9 @@ $gray: #429391;
   }
 
   .logo img {
-    max-height: 40px;
-    margin-top: 17px;
+    width: 60vw;
+    height: 20vw;
+    object-fit: fill;
   }
 
   .navigation {
@@ -1100,22 +1100,24 @@ $gray: #429391;
   }
 
   .header-info {
-    order: 2;
-    flex-direction: row;
-    justify-content: flex-end;
     align-items: center;
-    gap: 10px;
-    margin-right: 10px;
+    gap: 0.5vw;
+    position: absolute;
+    left: 58vw;
   }
 
   .language-change-button {
-    transition: background-color 0.3s, color 0.3s;
-  }
+    width: 15vw;
+    height: 15vw;
+    font-size: 12px;
+    text-align: center;
+   }
 
-  .language-change-button:hover {
-    background-color: #333;
-    color: #fff;
-  }
+   .whatsapp-icon {
+      width: 15vw;
+      height: 15vw;
+      margin-top: 11px;
+    }
 
   #description {
     display: flex;
@@ -1164,32 +1166,61 @@ $gray: #429391;
     margin: 10px 0;
    }
 
-   .bubble {
-    border-radius: 45%;
-    padding: 15px;
-    width: 65px;
-    height: 65px;
-    font-size: 7px;
-   }
+   .review-logo {
+      position: relative;
+      width: 70px; /* Adjust as needed */
+      height: 60px; /* Adjust as needed */
+      left: 30vw;
+    }
+
+    .bubble {
+        padding: 10px;
+        width: 14vw;
+        height: 14vw;
+        font-size: 1.5vw;
+    }
+
+   .info-bubbles {
+        gap: 4px;
+    }
 
    .bubble img {
-    max-width: 25px;
-    max-height: 35px;
+        width: 5vw;
+        height: 5vw;
+        margin-bottom: 2px;
    }
 
     #availability h2 {
-        font-size: 20px;
-        text-align: center;
+        font-size: 7vw;
         margin-bottom: 15px;
-    }
-
-    .date-inputs, .input-wrapper {
-        flex-direction: row;
-        justify-content: space-between;
+        width: 40vw;
+        box-sizing: border-box;
+        padding: 10px;
+        left: 20vw;
     }
 
     .input-wrapper label, .input-wrapper input, .input-wrapper select {
-        font-size: 12px;
+        font-size: 1.9vw;
+    }
+
+    .date-inputs {
+        width: 64vw;
+        height: 17vw;
+        left: 7vw;
+        position: absolute;
+    }
+
+    .date-inputs input {
+        width: 10vw;
+    }
+
+    .date-inputs input {
+        width: 10vw;
+    }
+
+    #guests {
+        width: 15vw;
+        font-size: 1.7vw;
     }
 
     #discount-banner {
@@ -1201,16 +1232,18 @@ $gray: #429391;
 
      #prices, #errmsg {
         text-align: center;
-        font-size: 12px;
-        left: 110px;
+        font-size: 4vw;
+        left: 13vw;
+        top: 45vw;
     }
 
     .credentials-wrapper {
         padding: 3px 8px;
-        width: 253px;
-        height: 85px;
-        left: 35%;
-        top: 69%;
+        width: 70vw;
+        height: 24vw;
+        left: 10vw;
+        top: 143vw;
+        font-size: 4vw;
     }
 
     .credentials-wrapper input {
@@ -1250,9 +1283,6 @@ $gray: #429391;
         margin: auto;
     }
 
-    .copyrights-logo p{
-        font-size: 10px;
-    }
 
     .enquiries-form label {
         margin-bottom: 0px;
@@ -1278,112 +1308,137 @@ $gray: #429391;
     }
 
     .footer-email-location {
-        width: 188px;
+        width: 78vw;
+        margin-bottom: 20px;
+        order: 2;
     }
 
     .footer-email-location p{
         font-size: 15px;
     }
+
+    #copyrights-logo p {
+        font-size: 3vw; /* Adjust as needed */
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left, .footer-right {
+        align-items: center;
+        width: 100%;
+    }
+
+    .enquiries-form {
+        order: 1;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .copyrights-logo {
+        order: 3;
+    }
 }
 
 
+@media (min-width: 481px) and (max-width: 1029px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        display: flex;
+        position: absolute !important;
+    }
 
-@media (max-width: 480px){
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    display: flex;
-    position: absolute !important;
-  }
+    .copyrights-logo p{
+        font-size: 10px;
+    }
 
-  .logo img {
-    width: 70%;
-    height: 40%;
-  }
+    .logo img {
+        width: 70%;
+        height: 40%;
+    }
 
-  .navigation {
-    display: none;
-  }
+    .navigation {
+        display: none;
+    }
 
-  .header-info {
-    order: 2;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 10px;
-    margin-right: 10px;
-  }
+    .header-info {
+        order: 2;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+        margin-right: 10px;
+    }
 
-  .language-change-button {
-    transition: background-color 0.3s, color 0.3s;
-  }
+    #description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
-  .language-change-button:hover {
-    background-color: #333;
-    color: #fff;
-  }
+    .list-and-images {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; 
+        width: 90%;
+    }
 
-  #description {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    .image-container, .list-facilities-callus {
+        width: 100%;
+    }
 
-  .list-and-images {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; 
-    width: 90%;
-  }
+    .facilities {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 10px; 
+        margin-bottom: 50px;
+    }
 
-  .image-container, .list-facilities-callus {
-    width: 100%;
-  }
+    .list-and-images {
+        flex-direction: column;
+    }
 
-  .facilities {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 10px; 
-    margin-bottom: 50px;
-  }
+    .image-container img {
+        text-align: center;
+        margin-left: 25px;
+    }
+        
+    #description ul {
+        font-size: 20px;
+    }
 
-  .list-and-images {
-    flex-direction: column;
-  }
+    .review {
+        flex-basis: 100%;
+        max-width: 100%;
+        margin: 10px 0;
+    }
 
-  .image-container img {
-    text-align: center;
-    margin-left: 25px;
-  }
-    
-  #description ul {
-    font-size: 20px;
-  }
 
-   .review {
-    flex-basis: 100%;
-    max-width: 100%;
-    margin: 10px 0;
-   }
+    .info-bubbles {
+        gap: 10px;
+    }
 
-   .bubble {
-    border-radius: 45%;
-    padding: 15px;
-    width: 65px;
-    height: 65px;
-    font-size: 7px;
-   }
+    .bubble {
+        border-radius: 45%;
+        padding: 10px;
+        width: auto;
+        height: auto;
+        font-size: 11px;
+    }
 
-   .bubble img {
-    max-width: 25px;
-    max-height: 35px;
-   }
+    .bubble img {
+        max-width: 25px;
+        max-height: 35px;
+    }
 
     #availability h2 {
         font-size: 20px;
@@ -1397,14 +1452,17 @@ $gray: #429391;
     }
 
     .input-wrapper label, .input-wrapper input, .input-wrapper select {
-        font-size: 12px;
+        font-size: 1.9vw;
     }
 
     #discount-banner {
-        height: 50px;
-        width: 50px;
-        font-size: 8px;
-        margin-bottom: 5px;
+        height: 16vw;
+        width: 17vw;
+        font-size: 2.5vw;
+        left: 5vw;
+        top: 176vw;
+        padding: 6vw;
+        padding-top: 1vw;
     }
 
      #prices, #errmsg {
@@ -1422,10 +1480,10 @@ $gray: #429391;
     }
 
     .credentials-wrapper input {
-        font-size: 10px;
+        font-size: 2.5vw;
     }
     .credentials-wrapper p {
-      font-size: 10px;
+      font-size: 2.5vw;
     }
 
     .credentials-wrapper #credp1,
@@ -1458,8 +1516,8 @@ $gray: #429391;
         margin: auto;
     }
 
-    .copyrights-logo p{
-        font-size: 10px;
+    #copyrights-logo p {
+        font-size: 2vw; /* Adjust as needed */
     }
 
     .enquiries-form label {
