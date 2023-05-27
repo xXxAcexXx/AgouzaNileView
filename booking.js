@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
         return [year, month, day].join('-');
     }
 
-    const blockedDates = ["2023-05-10", "2023-05-11", "2023-05-12","2023-05-14","2023-05-16","2023-05-17","2023-05-27"];
+    const blockedDates = ["2023-05-30"];
 
     let checkinDatepicker;
     let checkoutDatepicker;

@@ -895,31 +895,7 @@ img {
     padding-top: 25px;
 }
 
-/*.error-message-container {
-    padding: 10px 0;
-    margin-bottom: 20px;
-    text-align: center;
-}
 
-.popup-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.popup-content {
-  text-align: center;
-}
-
-.popup-content p {
-  margin-bottom: 10px;
-}
-*/
 
 $primary: black;
 $secondary: #429391;
@@ -993,6 +969,40 @@ $gray: #429391;
 
 .red-border {
   border-color: red !important;
+}
+
+.discount-banner {
+  position: absolute;
+  left: 35px;
+  bottom: 40px;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(120deg, #ccc, #429391, #ccc);
+  background-size: 200% 200%;
+  border-color: 1px solid #ccc;
+  border-radius: 50%;
+  color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.4;
+  animation: gradient 3s linear infinite, pulse 2s infinite;
+  cursor: none;
+}
+
+@keyframes gradient {
+  0% {background-position: 100% 0;}
+  50% {background-position: 0 50%;}
+  100% {background-position: 100% 0;}
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 /* The popup */
@@ -1090,9 +1100,8 @@ $gray: #429391;
   }
 
   .logo img {
-    width: 60vw;
-    height: 20vw;
-    object-fit: fill;
+    width: 60%;
+    height: 50%;
   }
 
   .navigation {
@@ -1107,16 +1116,17 @@ $gray: #429391;
   }
 
   .language-change-button {
-    width: 15vw;
-    height: 15vw;
+    width: auto;
+    height: auto;
     font-size: 12px;
     text-align: center;
    }
 
    .whatsapp-icon {
-      width: 15vw;
-      height: 15vw;
-      margin-top: 11px;
+        position: flex-end;
+        width: auto;
+        max-height: 37px;
+        height: auto;
     }
 
   #description {
@@ -1124,6 +1134,10 @@ $gray: #429391;
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  #description h2{
+    font-size: 20px;
   }
 
   .list-and-images {
@@ -1175,9 +1189,9 @@ $gray: #429391;
 
     .bubble {
         padding: 10px;
-        width: 14vw;
-        height: 14vw;
-        font-size: 1.5vw;
+        width: 16vw;
+        height: 20vw;
+        font-size: 2vw;
     }
 
    .info-bubbles {
@@ -1191,27 +1205,19 @@ $gray: #429391;
    }
 
     #availability h2 {
-        font-size: 7vw;
+        font-size: 20px;
+        text-align: center;
         margin-bottom: 15px;
-        width: 40vw;
-        box-sizing: border-box;
-        padding: 10px;
-        left: 20vw;
+        max-width: 200px;
+    }
+
+    .date-inputs, .input-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .input-wrapper label, .input-wrapper input, .input-wrapper select {
         font-size: 1.9vw;
-    }
-
-    .date-inputs {
-        width: 64vw;
-        height: 17vw;
-        left: 7vw;
-        position: absolute;
-    }
-
-    .date-inputs input {
-        width: 10vw;
     }
 
     .date-inputs input {
@@ -1230,11 +1236,23 @@ $gray: #429391;
         margin-bottom: 5px;
     }
 
-     #prices, #errmsg {
+     #prices {
         text-align: center;
         font-size: 4vw;
         left: 13vw;
         top: 45vw;
+    }
+
+    #errmsg {
+        text-align: center;
+        font-size: 4vw;
+        left: 18vw;
+        top: 27vw;
+        width: auto;
+        max-width: 200px;
+        height: auto;
+        max-height: 100px;
+        padding: 8px;
     }
 
     .credentials-wrapper {
@@ -1310,7 +1328,6 @@ $gray: #429391;
     .footer-email-location {
         width: 78vw;
         margin-bottom: 20px;
-        order: 2;
     }
 
     .footer-email-location p{
@@ -1322,7 +1339,7 @@ $gray: #429391;
     }
 
     .footer-content {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
     }
 
@@ -1332,13 +1349,8 @@ $gray: #429391;
     }
 
     .enquiries-form {
-        order: 1;
         margin-bottom: 20px;
-        width: 100%;
-    }
-
-    .copyrights-logo {
-        order: 3;
+        width: 90%;
     }
 }
 
@@ -1451,39 +1463,45 @@ $gray: #429391;
         justify-content: space-between;
     }
 
-    .input-wrapper label, .input-wrapper input, .input-wrapper select {
+    .input-wrapper label, .input-wrapper input, .input-wrapper select , #guests {
         font-size: 1.9vw;
     }
 
     #discount-banner {
-        height: 16vw;
-        width: 17vw;
-        font-size: 2.5vw;
-        left: 5vw;
-        top: 176vw;
-        padding: 6vw;
-        padding-top: 1vw;
+        height: auto;
+        width: auto;
+        font-size: 11px;
+        padding: 30px;
+        max-width: 70px;
+        max-height: 70px;
+        padding-top: 2px;
+        left: 15px;
     }
 
      #prices, #errmsg {
         text-align: center;
         font-size: 12px;
         left: 110px;
+        padding: 5px;
+        max-height: 150px;
+        top: 29px;
     }
 
     .credentials-wrapper {
         padding: 3px 8px;
-        width: 253px;
-        height: 85px;
-        left: 35%;
-        top: 69%;
+        width: auto;
+        height: auto;
+        max-width: 256px;
+        max-height: 80px;
+        left: 157px;
+        top: 368px;
     }
 
     .credentials-wrapper input {
-        font-size: 2.5vw;
+        font-size: 10px;
     }
     .credentials-wrapper p {
-      font-size: 2.5vw;
+        font-size: 10px;
     }
 
     .credentials-wrapper #credp1,
