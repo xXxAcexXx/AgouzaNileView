@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
         return [year, month, day].join('-');
     }
 
-    const blockedDates = ["2023-05-30"];
+    const blockedDates = ["2023-06-10"];
 
     let checkinDatepicker;
     let checkoutDatepicker;
@@ -217,6 +217,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 priceInfo.style.display = "block";
                 credentialsElement.style.display="block";
                 bookNowButton.disabled = false;
+                discountdisplay.style.display = "block";
                 /*if (validateCredentials(emailInput.value, whatsappInput.value)) {
                     // Enable 'Book Now' button
                 bookNowButton.disabled = false;
@@ -227,7 +228,7 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         } 
         else {
-            discountdisplay.style.display = "block";
+            discountdisplay.style.display = "none";
             blockedMessage.style.display = "none";
             priceInfo.style.display = "none";
             bookNowButton.disabled = true;
