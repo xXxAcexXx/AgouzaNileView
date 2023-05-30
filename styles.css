@@ -108,28 +108,6 @@ footer {
   align-items: center;
 }
 
-.enquiries-form label {
-  display: block;
-  margin-bottom: 5px;
-  text-align: center;
-}
-
-.input-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.enquiries-form input[type="text"],
-.enquiries-form input[type="email"],
-.enquiries-form input[type="tel"] {
-  border: 1px solid #ccc;
-  padding: 5px;
-  width: 70%; /* adjust as necessary */
-}
-
-
-
 .enquiries-form {
   border: 1px solid #ccc;
   padding: 10px;
@@ -147,10 +125,24 @@ footer {
   text-decoration: underline;
 }
 
+.enquiries-form label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
 .input-row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
+}
+
+.enquiries-form input[type="text"],
+.enquiries-form input[type="email"],
+.enquiries-form input[type="tel"] {
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 70%; /* adjust as necessary */
 }
 
 .enquiries-form textarea {
@@ -235,11 +227,12 @@ body::before {
     text-decoration: none;
     padding: 12px 24px;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 1em;
     transition: 0.3s;
     position: absolute;
     bottom: 20px;
     right: 10px;
+    width: auto;
 }
 
 .button:hover {
@@ -416,12 +409,7 @@ section::after {
     z-index: -1;
     border-radius: 10px;
 }
-/* Description section 
-#description::before{
-    background-image: url(image4.webp);
-    object-fit: fill;
-    opacity: 0.75;
-}*/
+/* Description section */
 
 #description h1{
     font-size: 32px;
@@ -494,30 +482,6 @@ section::after {
   margin: 0;
 }
 
-
-.call-us {
-    /* Your current styles for the call-us button */
-    align-self: flex-end;
-    margin-top: 20px; /* Add a gap between the call-us button and the list-and-images container */
-}
-
-/*#gallery::before {
-    background-image: url(image4.webp);
-}
-
-#reviews::before {
-    background-image: url(image4.webp);
-}
-
-#location::before {
-    background-color: beige;
-}
-
-
-#booking::before {
-    background-image: url(image1.webp);
-}
-*/
 
 /* Gallery section */
 .image-grid {
@@ -706,13 +670,10 @@ img {
     font-size: 32px;
     color: white;
     position: relative;
-    border-radius: 10px;
-    border: 1px solid #ccc; /* Changed border color */
     padding: 15px 25px; /* Added more padding */
     width: auto; /* Adjusted width */
     box-sizing: border-box;
     text-align: center; /* Center aligned text */
-    box-shadow: 3px 3px 10px rgba(0,0,0,0.2); /* Added a box-shadow for a 3D effect */
 }
 
 .input-wrapper {
@@ -733,7 +694,6 @@ img {
     border: 1px solid #ccc; /* Thin grey border */
     border-radius: 50px; /* Cylindrical shape */
     padding: 8px 16px; /* Some padding to make it look better */
-    background-color: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
@@ -818,12 +778,11 @@ img {
     bottom: 60px;
 }
 
-#book-now-wrapper {
+/*#book-now-wrapper {
     order: 2; /* makes book-now-wrapper always display below cred-wrapper when they wrap onto new lines */
-}
 
-#cred-wrapper,
-#book-now-wrapper {
+
+#cred-wrapper{
     max-width: 400px; /* set a max-width for cred-wrapper and book-now-wrapper to control their size */
 }
 
@@ -855,13 +814,6 @@ img {
 .credentials-wrapper input:focus {
   border-color: #fd7e14;
 }
-
-#book-now-button {
-  disabled: true; /* Button is disabled until conditions are met */
-}
-
-
-
 /* Add these styles to your CSS */
 
 .price-info, .error-message-container {
@@ -969,40 +921,6 @@ $gray: #429391;
 
 .red-border {
   border-color: red !important;
-}
-
-.discount-banner {
-  position: absolute;
-  left: 35px;
-  bottom: 40px;
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(120deg, #ccc, #429391, #ccc);
-  background-size: 200% 200%;
-  border-color: 1px solid #ccc;
-  border-radius: 50%;
-  color: #f8f8f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  text-align: center;
-  font-size: 13px;
-  line-height: 1.4;
-  animation: gradient 3s linear infinite, pulse 2s infinite;
-  cursor: none;
-}
-
-@keyframes gradient {
-  0% {background-position: 100% 0;}
-  50% {background-position: 0 50%;}
-  100% {background-position: 100% 0;}
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
 }
 
 /* The popup */
@@ -1404,9 +1322,6 @@ $gray: #429391;
     }
 
     #description {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         text-align: center;
     }
 
@@ -1416,10 +1331,6 @@ $gray: #429391;
         align-items: center;
         gap: 20px; 
         width: 90%;
-    }
-
-    .image-container, .list-facilities-callus {
-        width: 100%;
     }
 
     .facilities {
@@ -1466,6 +1377,45 @@ $gray: #429391;
     .bubble img {
         max-width: 25px;
         max-height: 35px;
+    }
+
+    #availability{
+        height: 500px;
+        display: flow-root;
+    }
+
+    #availability h2 {
+        font-size: 1.2em;
+    }
+
+    .date-inputs input, #guests, .input-wrapper select {
+        font-size: 0.5em;
+    }
+
+    .date-inputs label {
+        font-size: 0.7em;
+    }
+
+    .price-info, .error-message-container {
+        font-size: 0.7em;
+        width: max-content;
+        height: max-content;
+    }
+
+    .button.book-now-button {
+        bottom: 2px;
+        padding: 8px 13px;
+        right: 9px;
+        font-size: 0.8em;
+    }
+
+    .credentials-wrapper {
+        width: max-content;
+        height: max-content;
+    }
+
+    .credentials-wrapper p, .credentials-wrapper input {
+        font-size: 0.7em;
     }
 
     .popup-content {
