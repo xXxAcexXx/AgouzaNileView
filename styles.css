@@ -992,115 +992,105 @@ $gray: #429391;
 }
 
 @media (max-width: 480px){
+
     #discount-banner {
-        font-size: 2.5vw;
+        font-size: 9px;
     }
 
     header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    display: flex;
-    position: absolute !important;
-  }
-
-  .headerlogo img{
-    justify-content: flex-start;
-  }
-
-  .logo img {
-    width: 60%;
-    height: 50%;
-  }
-
-  .navigation {
-    display: none;
-  }
-
-  .header-info {
-    justify-content: flex-end;
-  }
-
-  .language-change-button {
-    width: auto;
-    height: auto;
-    font-size: 12px;
-    text-align: center;
-   }
-
-   .language-dropdown {
-    padding: 5px;
-    margin-right: -10px;
-   }
-
-   .whatsapp-number {
-    margin-right: 0px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        display: flex;
+        position: absolute !important;
     }
 
-   .whatsapp-icon {
-    width: auto;
-    max-height: 37px;
-    height: auto;
-    padding: 5px;
+    .headerlogo img{
+        justify-content: flex-start;
     }
 
-  #description {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    .logo img {
+        width: 60%;
+        height: 50%;
+    }
 
-  #description h2{
-    font-size: 20px;
-  }
+    .navigation {
+        display: none;
+    }
 
-  .list-and-images {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; 
-    width: 90%;
-  }
+    .header-info {
+        justify-content: flex-end;
+    }
 
-  .image-container, .list-facilities-callus {
-    width: 100%;
-  }
+    .language-change-button {
+        width: auto;
+        height: auto;
+        font-size: 12px;
+        text-align: center;
+    }
 
-  .facilities {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 10px; 
-    margin-bottom: 50px;
-  }
+    .language-dropdown {
+        padding: 5px;
+        margin-right: -10px;
+    }
 
-  .list-and-images {
-    flex-direction: column;
-  }
+    .whatsapp-number {
+        margin-right: 0px;
+    }
 
-  .image-container img {
-    text-align: center;
-    margin-left: 19px;
-  }
+    .whatsapp-icon {
+        width: auto;
+        max-height: 37px;
+        height: auto;
+        padding: 5px;
+    }
+
+    #description h2{
+        font-size: 16px;
+    }
+
+    .list-and-images {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; 
+        width: 90%;
+    }
+
+    .image-container, .list-facilities-callus {
+        width: 100%;
+    }
+
+    .facilities {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 10px; 
+        margin-bottom: 50px;
+    }
+
+    .image-container img {
+        text-align: center;
+        margin-left: 19px;
+    }
     
-  #description ul {
-    font-size: 20px;
-  }
+    #description ul {
+        font-size: 14px;
+    }
 
-   .review {
-    flex-basis: 100%;
-    max-width: 100%;
-    margin: 10px 0;
-   }
+    .review {
+        flex-basis: 100%;
+        max-width: 100%;
+        margin: 10px 0;
+    }
 
-   .review-logo {
-      position: relative;
-      width: 70px; /* Adjust as needed */
-      height: 60px; /* Adjust as needed */
-      left: 30vw;
+    .review-logo {
+        position: relative;
+        width: 70px; /* Adjust as needed */
+        height: 60px; /* Adjust as needed */
+        left: 30vw;
     }
 
     .bubble {
@@ -1126,7 +1116,7 @@ $gray: #429391;
     }
   
     #availability h2 {
-        font-size: 20px;
+        font-size: 18px;
         text-align: center;
         margin-top: 0;
         margin-bottom: 15px;
@@ -1136,24 +1126,23 @@ $gray: #429391;
 
     .date-inputs, .input-wrapper {
         justify-content: center;
-        width: 60vw;
+        width: auto;
         /* margin-bottom: 5px; */
     }
 
     .input-wrapper label, #guests label {
-        font-size: 2.1vw;
+        font-size: 7px;
     }
     .input-wrapper input, .input-wrapper select {
-        font-size: 1.9vw;
-    }
-
-    .date-inputs input {
-        width: 10vw;
+        font-size: 6px;
+        width: auto;
+        max-width: 40px;
+        padding: 2px;
     }
 
     #guests {
-        width: 15vw;
-        font-size: 1.7vw;
+        width: auto;
+        font-size: 6px;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -1165,18 +1154,28 @@ $gray: #429391;
         background-color: white;
     }
 
-     #prices {
+    #prices {
         position: unset;
         text-align: center;
-        padding: 10px;
+        padding: 2px;
         margin-top: 20px;
         margin-bottom: 10px;
+        font-size: 9px;
     }
 
+    .credentials-wrapper {
+        padding: 2px;
+    }
+
+    .credentials-wrapper p , .input-warning {
+        font-size: 9px;
+        margin: 0px;
+        font-family: unset;
+    }
     .error-message-container, .error-message {
         position: unset;
         text-align: center;
-        font-size: 2vw;
+        font-size: 12px;
         padding: 5px;
         margin: 6px;
     }
@@ -1268,9 +1267,13 @@ $gray: #429391;
         margin-bottom: 10px;
     }
 }
-}
 
 @media (min-width: 481px) and (max-width: 1044px) {
+
+    #discount-banner {
+        font-size: 16px;
+    }
+
   header {
     flex-direction: row;
     justify-content: space-between;
@@ -1411,24 +1414,23 @@ $gray: #429391;
 
     .date-inputs, .input-wrapper {
         justify-content: center;
-        width: 60vw;
-        /* margin-bottom: 5px; */
+        width: auto;
     }
 
     .input-wrapper label, #guests label {
-        font-size: 2.1vw;
+        font-size: 16px;
     }
     .input-wrapper input, .input-wrapper select {
-        font-size: 1.9vw;
+        font-size: 16px;
     }
 
     .date-inputs input {
-        width: 10vw;
+        width: auto;
     }
 
     #guests {
-        width: 15vw;
-        font-size: 1.7vw;
+        width: auto;
+        font-size: 16px;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;

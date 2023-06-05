@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { selector: '#li-4 a', originalText: 'Location'},
         { selector: '#li-5 a', originalText: 'Availability'},
 
-        { selector: '#description h1', originalText: 'Welcome to our Cozy Home' },
+        { selector: '#description h1', originalText: 'Welcome to Agouza Nile View Apartment - Luxury Living in Cairo and Giza' },
         { selector: '#description h2', originalText: 'Experience unparalleled Nile views from our centrally-located apartment, nestled amidst Egypt\'s most iconic landmarks. Immerse yourself in a captivating fusion of breathtaking panoramas and cultural treasures, all at your doorstep'},
         
         { selector: '#li1', originalText: 'Open view on the Nile from all rooms'},
@@ -78,6 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
         { selector: '#l2', originalText: 'Check-out date'},
 
         { selector: '#l3', originalText: 'Guests'},
+
+        { selector: '#discount-banner', originalText: 'Special Offer: Enjoy a discount on stays of 7 days or more!'}, 
 
         { selector: '#credp1', originalText: 'Please provide your Email and / or Whatsapp number'},
         
