@@ -1,6 +1,7 @@
-document.cookie = "key=value; SameSite=None; Secure";
 
+//document.cookie = "key=value; SameSite=None; Secure";
 window.addEventListener("DOMContentLoaded", () => {
+
 
     function loadFlatpickr(callback) {
         const flatpickrStylesheet = document.createElement("link");
@@ -28,7 +29,14 @@ window.addEventListener("DOMContentLoaded", () => {
         return [year, month, day].join('-');
     }
 
-    const blockedDates = ["2023-06-10"];
+    const blockedDates = [
+        ["2023-06-04","2023-06-11"],
+        ["2023-06-26","2023-07-10"],
+        ["2023-07-23","2023-07-27"],
+        ["2023-11-01","2023-11-04"],
+        ["2023-11-16","2023-11-21"],
+        ["2023-12-01","2023-12-04"]
+    ];
 
     let checkinDatepicker;
     let checkoutDatepicker;
@@ -43,12 +51,32 @@ window.addEventListener("DOMContentLoaded", () => {
         checkinDatepicker = flatpickr("#checkin-date", {
             minDate: twoDaysLater,
             defaultDate: twoDaysLater,
-            disable: blockedDates,
+            disable: blockedDates.map(function(range) {
+            return {
+                from: range[0],
+                to: range[1]
+                }
+            }),
 
             onDayCreate: function(dObj, dStr, fp, dayElem){
                 // If this day is in the blockedDates array, add a title
-                if (blockedDates.includes(formatDate(dayElem.dateObj))){
+                /*if (blockedDates.includes(formatDate(dayElem.dateObj))){
                     dayElem.title = "Oops! Apartment's already booked";
+                    dayElem.classList.add("blocked-date");
+                }*/
+                if (blockedDates.some(range => {
+                    const from = new Date(range[0]);
+                    const to = new Date(range[1]);
+                    const thisDay = new Date(dayElem.dateObj);
+
+                    // Set the hours, minutes, seconds, and milliseconds to 0 for proper comparison
+                    from.setHours(0, 0, 0, 0);
+                    thisDay.setHours(0, 0, 0, 0);
+
+                    return thisDay >= from && thisDay <= to;
+                })) {
+                    dayElem.title = "Oops! Apartment's already booked";
+                    dayElem.classList.add("blocked-date");
                 }
             },
             
@@ -64,12 +92,33 @@ window.addEventListener("DOMContentLoaded", () => {
         checkoutDatepicker = flatpickr("#checkout-date", {
             minDate: fiveDaysLater,
             //defaultDate: fiveDaysLater,
-            disable: blockedDates,
+            disable: blockedDates.map(function(range) {
+            return {
+                from: range[0],
+                to: range[1]
+                }
+            }),
 
             onDayCreate: function(dObj, dStr, fp, dayElem){
                 // If this day is in the blockedDates array, add a title
-                if (blockedDates.includes(formatDate(dayElem.dateObj))){
+                /*if (blockedDates.includes(formatDate(dayElem.dateObj))){
                     dayElem.title = "Oops! Apartment's already booked";
+                    dayElem.classList.add("blocked-date");
+                }*/
+                if (blockedDates.some(range => {
+                    const from = new Date(range[0]);
+                    const to = new Date(range[1]);
+                    const thisDay = new Date(dayElem.dateObj);
+
+
+                    // Set the hours, minutes, seconds, and milliseconds to 0 for proper comparison
+                    from.setHours(0, 0, 0, 0);
+                    thisDay.setHours(0, 0, 0, 0);
+                    
+                    return thisDay >= from && thisDay <= to;
+                })) {
+                    dayElem.title = "Oops! Apartment's already booked";
+                    dayElem.classList.add("blocked-date");
                 }
             },
 
@@ -86,11 +135,16 @@ window.addEventListener("DOMContentLoaded", () => {
     function checkBlockedDates(startDate, endDate) {
         const start = new Date(startDate.latestSelectedDateObj);
         const end = new Date(endDate.latestSelectedDateObj);
-        return blockedDates.some(date => {
-            const blockedDate = new Date(date);
-            return blockedDate >= start && blockedDate <= end;
+        return blockedDates.some(range => {
+            const rangeStart = new Date(range[0]);
+            const rangeEnd = new Date(range[1]);
+
+            return (start >= rangeStart && start <= rangeEnd) || // start date is within blocked range
+                   (end >= rangeStart && end <= rangeEnd) ||     // end date is within blocked range
+                   (start <= rangeStart && end >= rangeEnd);     // start date is before and end date is after blocked range
         });
     }
+
 
     function discountpercent(days){
         if (days >= 7 && days < 14) {
@@ -176,7 +230,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const extraGuestsFeesElement = document.getElementById("extra-guests-fees"); // New Line
         const guestCount = document.getElementById("guests").value; // New Line
         const credentialsElement = document.getElementById("cred-wrapper");
-        const discountdisplay = document.getElementById('discount-banner')
+        const discountdisplay = document.getElementById('discount-banner');
 
         if (!checkinDatepicker || !checkoutDatepicker) {
             return;
@@ -185,7 +239,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const checkinDateInstance = checkinDatepicker;
         const checkoutDateInstance = checkoutDatepicker;
 
-        const blockedPeriods = getBlockedPeriods(checkinDateInstance.latestSelectedDateObj, checkoutDateInstance.latestSelectedDateObj);
+        //const blockedPeriods = getBlockedPeriods(checkinDateInstance.latestSelectedDateObj, checkoutDateInstance.latestSelectedDateObj);
 
         extraGuestsFeesElement.innerHTML=''
         if (isValidDateRange(checkinDateInstance, checkoutDateInstance)) {
@@ -194,7 +248,6 @@ window.addEventListener("DOMContentLoaded", () => {
                 priceInfo.style.display = "none";
                 bookNowButton.disabled = true;
                 credentialsElement.style.display="none";
-                discountdisplay.style.display = "block";
             } else {
                 blockedMessage.style.display = "none";
                 const { discountedDailyRate, discountedAccomodationCost, discountedTotalPrice, accommodationCost, totalPrice, days, dailyRate, cleaningFees, extraGuestsCost } = calculatePrice(checkinDateInstance.latestSelectedDateObj, checkoutDateInstance.latestSelectedDateObj);
@@ -203,21 +256,21 @@ window.addEventListener("DOMContentLoaded", () => {
                     extraGuestsFeesElement.innerHTML = guestCount > 5 ? `Extra guest(s) fees: $25 * <span>${guestCount - 5}</span> guest(s) * <span>${days}</span> nights = $<span>${extraGuestsCost}</span>` : "$0"; // New Line
                 }
                 if (days>=7){
+                    discountdisplay.style.display = "none";
                     accommodationCostElement.innerHTML = `<span style="color:grey;text-decoration:line-through;">Accommodation cost: $<span style="color:grey;">${dailyRate}</span> x <span style="color:grey;">${days}</span> nights = $<span style="color:grey;">${accommodationCost}</span></span><br/>`;
                     accommodationCostElement.innerHTML += `<span style="color:green;">Discounted Rate: $<span style="color:green;">${discountedDailyRate}</span> x <span style="color:green;">${days}</span> nights = $<span style="color:green;">${discountedAccomodationCost}</span></span>`;
                     totalPriceElement.innerHTML = `<span style="color:grey;text-decoration:line-through;">Total Price: $<span style="color:grey;">${totalPrice}</span></span><br/>`;
                     totalPriceElement.innerHTML += `<span style="color:green;">Discounted Total Price: $<span style="color:green;">${discountedTotalPrice}</span></span>`; 
                 }
-                    else {
-                        discountdisplay.style.display = "block";
-                        accommodationCostElement.innerHTML = `<span>Accommodation cost: $<span>${dailyRate}</span> x <span>${days}</span> nights = $<span>${accommodationCost}</span>`;
-                        totalPriceElement.innerHTML = `<span>Total Price: $<span>${totalPrice}</span>`; // Updated Line
+                else {
+                    discountdisplay.style.display = "block";
+                    accommodationCostElement.innerHTML = `<span>Accommodation cost: $<span>${dailyRate}</span> x <span>${days}</span> nights = $<span>${accommodationCost}</span>`;
+                    totalPriceElement.innerHTML = `<span>Total Price: $<span>${totalPrice}</span>`; // Updated Line
                 }
 
                 priceInfo.style.display = "block";
                 credentialsElement.style.display="block";
                 bookNowButton.disabled = false;
-                discountdisplay.style.display = "block";
                 /*if (validateCredentials(emailInput.value, whatsappInput.value)) {
                     // Enable 'Book Now' button
                 bookNowButton.disabled = false;
@@ -228,7 +281,6 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         } 
         else {
-            discountdisplay.style.display = "none";
             blockedMessage.style.display = "none";
             priceInfo.style.display = "none";
             bookNowButton.disabled = true;
@@ -262,23 +314,6 @@ window.addEventListener("DOMContentLoaded", () => {
             document.getElementById('cred-warning').style.display = 'block';
         }
     });
-
-    /*bookNowButton = document.getElementById("book-now-button").addEventListener('mouseenter', function() {
-        console.log(isValidDateRange(checkinDatepicker, checkoutDatepicker));
-        console.log(checkBlockedDates(checkinDatepicker, checkoutDatepicker));
-        if (bookNowButton.disabled && isValidDateRange(checkinDatepicker, checkoutDatepicker) && checkBlockedDates(checkinDatepicker, checkoutDatepicker)) {
-            console.log("dakhalna fl disabled");
-            disclaimerMessage.style.display = "block";
-            disclaimerMessage.innerHTML = "Please provide your email or Whatsapp number to proceed with booking"; // Set the disclaimer text
-        }
-    });
-
-    bookNowButton = document.getElementById("book-now-button").addEventListener('mouseleave', function() {
-        if (bookNowButton.disabled) {
-            disclaimerMessage.style.display = "none";
-        }
-    });
-    */
 
 
     document.querySelector('.enquiries-form form').addEventListener('submit', function(event) {

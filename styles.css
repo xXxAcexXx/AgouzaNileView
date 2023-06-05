@@ -652,6 +652,12 @@ img {
     background-color: rgba(0,0,0,0.5); /* This will create a black overlay with 50% opacity */
 }
 
+#availabilityimage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 #availabilityimage::before {
     content: "";
     background-image: url(images/image10.webp);
@@ -703,7 +709,7 @@ img {
     text-align: center;
 }
 
-.date-inputs input,#guests{
+.date-inputs input, #guests {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px 5px;
@@ -740,6 +746,14 @@ img {
     background-color: #ccc; /* Thin grey line */
 }
 
+.blocked-date {
+    /* Apply your desired styles here */
+    position: relative;
+    color: darkgrey !important;
+    background-color: #ccc;
+    border-radius: 50%; /* Make it circular */
+    text-decoration: line-through;
+}
 
 .guests-input {
   cursor: pointer;
@@ -773,17 +787,8 @@ img {
     margin-bottom: 10px;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     background: rgba(255, 255, 255, 0.7);
-    position: absolute;
-    right: 12px;
-    bottom: 60px;
-}
+    margin-top: 20px;
 
-/*#book-now-wrapper {
-    order: 2; /* makes book-now-wrapper always display below cred-wrapper when they wrap onto new lines */
-
-
-#cred-wrapper{
-    max-width: 400px; /* set a max-width for cred-wrapper and book-now-wrapper to control their size */
 }
 
 .credentials-input-wrapper input{
@@ -802,13 +807,13 @@ img {
 }
 
 .credentials-wrapper input {
-  font-size: 14px;
-  gap: 5px;
-  color: black;
-  margin-top: 5px;
-  display: flex; /* Align email and whatsapp inputs horizontally */
-  margin-right: 5px; 
-  margin-bottom: 20px; /* 20px distance between inputs and the button */
+    font-size: 1.3vw;
+    gap: 5px;
+    color: black;
+    margin-top: 5px;
+    display: flex;
+    margin-right: 5px;
+    margin-bottom: 20px;
 }
 
 .credentials-wrapper input:focus {
@@ -916,7 +921,8 @@ $gray: #429391;
 
 .input-warning {
   color: #f0162f;
-  font-size: 0.7em;
+  font-size: 12px;
+  text-align: center;
 }
 
 .red-border {
@@ -973,52 +979,30 @@ $gray: #429391;
   cursor: pointer;
 }
 
-.discount-banner {
-  position: absolute;
-  left: 35px;
-  bottom: 40px;
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(120deg, #ccc, #429391, #ccc);
-  background-size: 200% 200%;
-  border-color: 1px solid #ccc;
-  border-radius: 50%;
-  color: #f8f8f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  text-align: center;
-  font-size: 13px;
-  line-height: 1.4;
-  animation: gradient 3s linear infinite, pulse 2s infinite;
-  cursor: none;
-}
-
-@keyframes gradient {
-  0% {background-position: 100% 0;}
-  50% {background-position: 0 50%;}
-  100% {background-position: 100% 0;}
+#discount-banner {
+    font-size: 1.3vw;
+    animation: pulse 2s infinite;
+    color: green;
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0% { transform: scale(0.9); }
+  50% { transform: scale(1); }
+  100% { transform: scale(0.9); }
 }
 
 @media (max-width: 480px){
-  header {
+    #discount-banner {
+        font-size: 2.5vw;
+    }
+
+    header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     display: flex;
     position: absolute !important;
-  }
-
-  .button {
-    font-size: 15px;
   }
 
   .headerlogo img{
@@ -1136,20 +1120,30 @@ $gray: #429391;
         margin-bottom: 2px;
    }
 
+    #availability {
+        min-height: 400px;
+        justify-content: center;
+    }
+  
     #availability h2 {
         font-size: 20px;
         text-align: center;
+        margin-top: 0;
         margin-bottom: 15px;
         max-width: 200px;
+        position: unset;
     }
 
     .date-inputs, .input-wrapper {
         justify-content: center;
         width: 60vw;
-        margin-bottom: 5px;
+        /* margin-bottom: 5px; */
     }
 
-    .input-wrapper label, .input-wrapper input, .input-wrapper select {
+    .input-wrapper label, #guests label {
+        font-size: 2.1vw;
+    }
+    .input-wrapper input, .input-wrapper select {
         font-size: 1.9vw;
     }
 
@@ -1160,73 +1154,331 @@ $gray: #429391;
     #guests {
         width: 15vw;
         font-size: 1.7vw;
-    }
-
-    #discount-banner {
-        height: 50px;
-        width: 50px;
-        font-size: 8px;
-        margin-bottom: 5px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3Cpath d='M0,0 L20,0 L10,10 z' fill='black' /%3E%3C/svg%3E") no-repeat;
+        background-size: 1.5vw;
+        background-position: 95% center;
+        padding-right: 3vw;
+        color: black;
+        background-color: white;
     }
 
      #prices {
+        position: unset;
         text-align: center;
-        font-size: 3vw;
-        left: 21vw;
-        top: 11vw;
+        padding: 10px;
+        margin-top: 20px;
+        margin-bottom: 10px;
     }
 
-    #errmsg {
+    .error-message-container, .error-message {
+        position: unset;
         text-align: center;
-        font-size: 4vw;
-        left: 18vw;
-        top: 27vw;
-        width: auto;
-        max-width: 200px;
-        height: auto;
-        max-height: 100px;
-        padding: 8px;
+        font-size: 2vw;
+        padding: 5px;
+        margin: 6px;
     }
 
-    .credentials-wrapper {
-        padding: 3px 8px;
-        width: 70vw;
-        height: 24vw;
-        left: 10vw;
-        top: 143vw;
-        font-size: 4vw;
-    }
-
-    .credentials-wrapper input {
-        font-size: 10px;
-    }
-    .credentials-wrapper p {
-      font-size: 10px;
-    }
-
-    .credentials-wrapper #credp1,
-    .credentials-wrapper #credp2 {
-        display: inline; /* make them display in one line */
-    }
     .credentials-wrapper .form__group {
         display: flex;
         justify-content: space-around; /* distribute items evenly */
         flex-wrap: wrap; /* wrap items if they don't fit */
     }
     .credentials-wrapper .form__field {
-        flex-basis: calc(50% - 10px); /* adjust for margin */
+        flex-basis: calc(50% - 50px); /* adjust for margin */
         margin-bottom: 10px;
     }
 
     #book-now-wrapper {
-        text-align: center;
+        justify-content: space-around;
+        display: flex;
     }
 
     .book-now-button {
-        font-size: 14px;
-        padding: 10px 20px;
-        display: block;
+        position: unset;
+        font-size: 2vw;
+        padding: 6px 12px;
         margin: auto;
+        display: flex;
+        align-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    .popup-content {
+        width: 58%;
+        margin: auto;
+    }
+
+
+    .enquiries-form label {
+        margin-bottom: 0px;
+        font-size: 10px;
+    }
+
+    .enquiries-form input{
+        width: 91%;
+        font-size: 8px;
+    }
+
+    .enquiries-form textarea {
+        font-size: 10px;
+    }
+
+    .enquiries-form .input-row {
+        flex-direction: column;
+    }
+
+    .enquiries-form input[type="email"],
+    .enquiries-form input[type="tel"] {
+        width: 50%%; /* adjust as necessary */
+    }
+
+    .footer-email-location {
+        width: 88%;
+        margin-bottom: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-email-location p{
+        font-size: 15px;
+    }
+
+    #copyrights-logo p {
+        font-size: 3vw; /* Adjust as needed */
+    }
+
+    .footer-content {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .footer-left, .footer-right {
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .enquiries-form {
+        width: 90%;
+        transform: translateX(0px);
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+}
+}
+
+@media (min-width: 481px) and (max-width: 1044px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    display: flex;
+    position: absolute !important;
+  }
+
+  .headerlogo img{
+    justify-content: flex-start;
+  }
+
+  .logo img {
+    width: 60%;
+    height: 50%;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .header-info {
+    justify-content: flex-end;
+  }
+
+  .language-change-button {
+    width: auto;
+    height: auto;
+    font-size: 12px;
+    text-align: center;
+   }
+
+   .language-dropdown {
+    padding: 5px;
+    margin-right: -10px;
+   }
+
+   .whatsapp-number {
+    margin-right: 0px;
+    }
+
+   .whatsapp-icon {
+    width: auto;
+    max-height: 37px;
+    height: auto;
+    padding: 5px;
+    }
+
+  #description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #description h2{
+    font-size: 20px;
+  }
+
+  .list-and-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; 
+    width: 90%;
+  }
+
+  .image-container, .list-facilities-callus {
+    width: 100%;
+  }
+
+  .facilities {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10px; 
+    margin-bottom: 50px;
+  }
+
+  .list-and-images {
+    flex-direction: column;
+  }
+
+  .image-container img {
+    text-align: center;
+    margin-left: 19px;
+  }
+    
+  #description ul {
+    font-size: 20px;
+  }
+
+   .review {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin: 10px 0;
+   }
+
+   .review-logo {
+      position: relative;
+      width: 70px; /* Adjust as needed */
+      height: 60px; /* Adjust as needed */
+      left: 30vw;
+    }
+
+    .bubble {
+        padding: 15px;
+        width: 16vw;
+        height: 20vw;
+        font-size: 2vw;
+    }
+
+   .info-bubbles {
+        gap: 4px;
+    }
+
+   .bubble img {
+        width: 5vw;
+        height: 5vw;
+        margin-bottom: 2px;
+   }
+
+    #availability {
+        min-height: 400px;
+        justify-content: center;
+    }
+  
+    #availability h2 {
+        font-size: 20px;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 15px;
+        max-width: 200px;
+        position: unset;
+    }
+
+    .date-inputs, .input-wrapper {
+        justify-content: center;
+        width: 60vw;
+        /* margin-bottom: 5px; */
+    }
+
+    .input-wrapper label, #guests label {
+        font-size: 2.1vw;
+    }
+    .input-wrapper input, .input-wrapper select {
+        font-size: 1.9vw;
+    }
+
+    .date-inputs input {
+        width: 10vw;
+    }
+
+    #guests {
+        width: 15vw;
+        font-size: 1.7vw;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3Cpath d='M0,0 L20,0 L10,10 z' fill='black' /%3E%3C/svg%3E") no-repeat;
+        background-size: 1.5vw;
+        background-position: 95% center;
+        padding-right: 3vw;
+        color: black;
+        background-color: white;
+    }
+
+     #prices {
+        position: unset;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .error-message-container, .error-message {
+        position: unset;
+        text-align: center;
+        font-size: 2vw;
+        padding: 5px;
+        margin: 6px;
+    }
+
+    .credentials-wrapper .form__group {
+        display: flex;
+        justify-content: space-around; /* distribute items evenly */
+        flex-wrap: wrap; /* wrap items if they don't fit */
+    }
+    .credentials-wrapper .form__field {
+        flex-basis: calc(50% - 50px); /* adjust for margin */
+        margin-bottom: 10px;
+    }
+
+    #book-now-wrapper {
+        justify-content: space-around;
+        display: flex;
+    }
+
+    .book-now-button {
+        position: unset;
+        font-size: 2vw;
+        padding: 6px 12px;
+        margin: auto;
+        display: flex;
+        align-content: flex-end;
+        flex-wrap: wrap;
     }
 
     .popup-content {
@@ -1293,7 +1545,7 @@ $gray: #429391;
 }
 
 
-@media (min-width: 481px) and (max-width: 1044px) {
+/*@media (min-width: 481px) and (max-width: 1044px) {
     header {
         flex-direction: row;
         justify-content: space-between;
@@ -1425,7 +1677,8 @@ $gray: #429391;
 
     #copyrights-logo p {
         font-size: 2vw; /* Adjust as needed */
-    }
+    /*}
+
 
     .enquiries-form {
         border: 1px solid #ccc;

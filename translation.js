@@ -79,9 +79,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         { selector: '#l3', originalText: 'Guests'},
 
-        { selector: '#credp1', originalText: 'Please provide your Email'},
-        { selector: '#credp2', originalText: 'and / or Whatsapp number'},
-
+        { selector: '#credp1', originalText: 'Please provide your Email and / or Whatsapp number'},
+        
         //{ selector: '#prices1', originalText: 'Accomodation Cost'},
         //{ selector: '#prices2', originalText: 'Cleaning fees'},
         { selector: '#book-now-button', originalText: 'Book now'},
