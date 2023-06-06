@@ -582,10 +582,8 @@ img {
 }
 
 .review-logo {
-  position: relative;
   width: 70px; /* Adjust as needed */
   height: 60px; /* Adjust as needed */
-  left: 84%;
 }
 
 
@@ -785,7 +783,6 @@ img {
     padding: 10px 16px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
     background: rgba(255, 255, 255, 0.7);
     margin-top: 20px;
 
@@ -1170,8 +1167,8 @@ $gray: #429391;
     .credentials-wrapper p , .input-warning {
         font-size: 9px;
         margin: 0px;
-        font-family: unset;
     }
+    
     .error-message-container, .error-message {
         position: unset;
         text-align: center;
@@ -1375,10 +1372,7 @@ $gray: #429391;
    }
 
    .review-logo {
-      position: relative;
       width: 70px; /* Adjust as needed */
-      height: 60px; /* Adjust as needed */
-      left: 30vw;
     }
 
     .bubble {
