@@ -6,11 +6,11 @@ window.addEventListener("DOMContentLoaded", () => {
     function loadFlatpickr(callback) {
         const flatpickrStylesheet = document.createElement("link");
         flatpickrStylesheet.rel = "stylesheet";
-        flatpickrStylesheet.href = "https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css";
+        flatpickrStylesheet.href = "https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css";
         document.head.appendChild(flatpickrStylesheet);
 
         const flatpickrScript = document.createElement("script");
-        flatpickrScript.src = "https://cdn.jsdelivr.net/npm/flatpickr";
+        flatpickrScript.src = "https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js";
         flatpickrScript.onload = callback;
         document.body.appendChild(flatpickrScript);
     }
@@ -443,7 +443,7 @@ window.addEventListener("DOMContentLoaded", () => {
     loadFlatpickr(initializeFlatpickr);
 });
 
-window.addEventListener('load', () => {
+/*window.addEventListener('load', () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
     .then((registration) => {
@@ -453,3 +453,4 @@ window.addEventListener('load', () => {
     });
   }
 });
+*/
