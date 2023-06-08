@@ -1288,6 +1288,7 @@ $gray: #429391;
 
   .headerlogo img{
     justify-content: flex-start;
+    height: fit-content;
   }
 
   .logo img {

@@ -1,3 +1,13 @@
+function loadGoogleMapsApi(callback) {
+  if (!window.google) {
+    const googleMapsApiScript = document.createElement("script");
+    googleMapsApiScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCSqTA1pqLElmDKcdgqAcPG-uMrAznKAlQ&callback=" + callback;
+    googleMapsApiScript.async = true; // Use async attribute
+    document.body.appendChild(googleMapsApiScript);
+  } else {
+    window[callback]();
+  }
+}
 
 // Initialize Google Maps
 function initMap() {
@@ -15,21 +25,17 @@ function initMap() {
     title: "Agouza Nile View Apartment",
   });
 }
-// Add an event listener for when the Google Maps API is ready
 
+// Intersection Observer
+const mapSection = document.getElementById("map"); // The id of the section where the map is displayed
 
-// Load Google Maps API script
-function loadGoogleMapsApi(callback) {
-  if (!window.google) {
-    const googleMapsApiScript = document.createElement("script");
-    googleMapsApiScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCSqTA1pqLElmDKcdgqAcPG-uMrAznKAlQ&callback=" + callback;
-    googleMapsApiScript.async = true; // Use async attribute
-    document.body.appendChild(googleMapsApiScript);
-  } else {
-    window[callback]();
-  }
-}
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      loadGoogleMapsApi("initMap");
+      observer.unobserve(mapSection); // Stop observing once the map is loaded
+    }
+  });
+});
 
-
-// Call the loadGoogleMapsApi function
-loadGoogleMapsApi("initMap");
+observer.observe(mapSection);
