@@ -19,11 +19,11 @@
     <script src="booking.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" crossorigin="anonymous"></script>
     <script src="translation.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 	<script type="text/javascript">
-   	(function(){
-      emailjs.init("HRT462aC4tQ-nXcd5"); // Replace YOUR_USER_ID with the User ID from your EmailJS account
-   	})();
+		(function(){
+			emailjs.init("HRT462aC4tQ-nXcd5");
+		})();
 	</script>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js" crossorigin="anonymous"></script>
@@ -259,8 +259,11 @@
 	            <h2>Experience unparalleled Nile views from our centrally-located apartment, nestled amidst Egypt's most iconic landmarks. Immerse yourself in a captivating fusion of breathtaking panoramas and cultural treasures, all at your doorstep</h2>
 	            <div class="list-and-images">
 	            	<div class="image-container">
-		                <!-- Replace with your own image URLs -->
-		                <img src="images/image1.webp" alt="Nile View From Living Room window">
+		                <picture>
+		                	<source media="(min-width: 1000px)" srcset="images/image1_big.webp">
+		                	<source media="(max-width: 999px)" srcset="images/image1_medium.webp">
+		                	<img src="images/image1_medium.webp" loading="lazy" alt="Master Bedroom of Agouza Nile View Apartment">
+		            	</picture><!-- Replace with your own image URLs -->
 		            </div>
 		            <div class="list-facilities-callus">
 
@@ -321,95 +324,41 @@
 
         	<h2>Gallery</h2>
 		    <div class="image-grid">
-		        <a href="images/image2.webp" data-lightbox="roadtrip">
-		            <picture>
-		                <source media="(min-width: 1000px)" srcset="images/image2.webp">
-		                <source media="(max-width: 999px)" srcset="images/image2_medium.webp">
-		                <source media="(max-width: 480px)" srcset="images/image2_small.webp">
-		                <img src="images/image2.webp" loading="lazy" alt="Master Bedroom of Agouza Nile View Apartment">
-		            </picture>
+		        <a href="images/image2_big.webp" data-lightbox="roadtrip">
+		            <img src="images/image2_small.webp" loading="lazy" alt="Master Bedroom of Agouza Nile View Apartment">
 		        </a>
-		        <a href="images/image3.webp" data-lightbox="roadtrip">
-		            <picture>
-		                <source media="(min-width: 1000px)" srcset="images/image3.webp">
-		                <source media="(max-width: 999px)" srcset="images/image3_medium.webp">
-		                <source media="(max-width: 480px)" srcset="images/image3_small.webp">
-		                <img src="images/image3.webp" loading="lazy" alt="Hall of Agouza Nile View Apartment">
-		            </picture>
+		        <a href="images/image3_big.webp" data-lightbox="roadtrip">
+		            <img src="images/image3_small.webp" loading="lazy" alt="Hall of Agouza Nile View Apartment">
 		        </a>
-		        <a href="images/image4.webp" data-lightbox="roadtrip">
-		            <picture>
-		                <source media="(min-width: 1000px)" srcset="images/image4.webp">
-		                <source media="(max-width: 999px)" srcset="images/image4_medium.webp">
-		                <source media="(max-width: 480px)" srcset="images/image4_small.webp">
-		                <img src="images/image4.webp" loading="lazy" alt="Salon of Agouza Nile View Apartment">
-		            </picture>
+		        <a href="images/image4_big.webp" data-lightbox="roadtrip">
+		            <img src="images/image4_small.webp" loading="lazy" alt="Salon of Agouza Nile View Apartment">
 		        </a>
-		        <a href="images/image5.webp" data-lightbox="roadtrip">
-		            <picture>
-		                <source media="(min-width: 1000px)" srcset="images/image5.webp">
-		                <source media="(max-width: 999px)" srcset="images/image5_medium.webp">
-		                <source media="(max-width: 480px)" srcset="images/image5_small.webp">
-		                <img src="images/image5.webp" loading="lazy" alt="Second bedroom of Agouza Nile View Apartment">
-		            </picture>
+		        <a href="images/image5_big.webp" data-lightbox="roadtrip">
+		            <img src="images/image5_small.webp" loading="lazy" alt="Second bedroom of Agouza Nile View Apartment">
 		        </a>
-		        <a href="images/image6.webp" data-lightbox="roadtrip">
-		            <picture>
-		                <source media="(min-width: 1000px)" srcset="images/image6.webp">
-		                <source media="(max-width: 999px)" srcset="images/image6_medium.webp">
-		                <source media="(max-width: 480px)" srcset="images/image6_small.webp">
-		                <img src="images/image6.webp" loading="lazy" alt="Living room of Agouza Nile View Apartment">
-		            </picture>
+		        <a href="images/image6_big.webp" data-lightbox="roadtrip">
+		            <img src="images/image6_small.webp" loading="lazy" alt="Living room of Agouza Nile View Apartment">
 		        </a>
-		        <a href="images/image7.webp" data-lightbox="roadtrip">
-		            <picture>
-		                <source media="(min-width: 1000px)" srcset="images/image7.webp">
-		                <source media="(max-width: 999px)" srcset="images/image7_medium.webp">
-		                <source media="(max-width: 480px)" srcset="images/image7_small.webp">
-		                <img src="images/image7.webp" loading="lazy" alt="Kitchen of Agouza Nile View Apartment">
-		            </picture>
+		        <a href="images/image7_big.webp" data-lightbox="roadtrip">
+		            <img src="images/image7_small.webp" loading="lazy" alt="Kitchen of Agouza Nile View Apartment">
 		        </a>
-		        <a href="images/image8.webp" data-lightbox="roadtrip">
-		            <picture>
-		                <source media="(min-width: 1000px)" srcset="images/image8.webp">
-		                <source media="(max-width: 999px)" srcset="images/image8_medium.webp">
-		                <source media="(max-width: 480px)" srcset="images/image8_small.webp">
-		                <img src="images/image8.webp" loading="lazy" alt="Second Bedroom of Agouza Nile View Apartment different angle">
-		            </picture>
+		        <a href="images/image8_big.webp" data-lightbox="roadtrip">
+		            <img src="images/image8_small.webp" loading="lazy" alt="Second Bedroom of Agouza Nile View Apartment different angle">
 		        </a>
-		        <a href="images/image9.webp" data-lightbox="roadtrip">
-		            <picture>
-		                <source media="(min-width: 1000px)" srcset="images/image9.webp">
-		                <source media="(max-width: 999px)" srcset="images/image9_medium.webp">
-		                <source media="(max-width: 480px)" srcset="images/image9_small.webp">
-		                <img src="images/image9.webp" loading="lazy" alt="Dining room of Agouza Nile View Apartment">
-		            </picture>
+		        <a href="images/image9_big.webp" data-lightbox="roadtrip">
+		            <img src="images/image9_small.webp" loading="lazy" alt="Dining room of Agouza Nile View Apartment">
 		        </a>
-		        <a href="images/image10.webp" data-lightbox="roadtrip">
-		            <picture>
-		                <source media="(min-width: 1000px)" srcset="images/image10.webp">
-		                <source media="(max-width: 999px)" srcset="images/image10_medium.webp">
-		                <source media="(max-width: 480px)" srcset="images/image10_small.webp">
-		                <img src="images/image10.webp" loading="lazy" alt="Nile view from master bedroom balcony">
-		            </picture>
+		        <a href="images/image10_big.webp" data-lightbox="roadtrip">
+		            <img src="images/image10_small.webp" loading="lazy" alt="Nile view from master bedroom balcony">
 		        </a>
 		        <a href="images/image11.webp" data-lightbox="roadtrip">
-		            <picture>
-		                <img src="images/image11.webp" loading="lazy" alt="Salon / Living room of Agouza Nile View Apartment">
-		            </picture>
+		            <img src="images/image11.webp" loading="lazy" alt="Salon / Living room of Agouza Nile View Apartment">
 		        </a>
 		        <a href="images/image12.webp" data-lightbox="roadtrip">
-		            <picture>
-		                <img src="images/image12.webp" loading="lazy" alt="Dining room of Agouza Nile View Apartment different angle">
-		            </picture>
+		            <img src="images/image12.webp" loading="lazy" alt="Dining room of Agouza Nile View Apartment different angle">
 		        </a>
-		        <a href="images/image13.webp" data-lightbox="roadtrip">
-		            <picture>
-		                <source media="(min-width: 1000px)" srcset="images/image13.webp">
-		                <source media="(max-width: 999px)" srcset="images/image13_medium.webp">
-		                <source media="(max-width: 480px)" srcset="images/image13_small.webp">
-		                <img src="images/image13.webp" loading="lazy" alt="Bathroom of Agouza Nile View Apartment">
-		            </picture>
+		        <a href="images/image13_big.webp" data-lightbox="roadtrip">
+		            <img src="images/image13_small.webp" loading="lazy" alt="Bathroom of Agouza Nile View Apartment">
 		        </a>
 		        <!-- Repeat for other images... -->
 		    </div>

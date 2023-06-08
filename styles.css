@@ -483,7 +483,7 @@ section::after {
 }
 
 
-/* Gallery section */
+/* Gallery section*/
 .image-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -549,9 +549,17 @@ img {
 }
 
 .review-content {
-  position: relative;
-  z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
 }
+
+.review-logo {
+    align-self: flex-end;
+}
+
 
 .review-header {
   display: flex;
@@ -658,7 +666,7 @@ img {
 }
 #availabilityimage::before {
     content: "";
-    background-image: url(images/image10.webp);
+    background-image: url(images/image10_big.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1083,13 +1091,6 @@ $gray: #429391;
         margin: 10px 0;
     }
 
-    .review-logo {
-        position: relative;
-        width: 70px; /* Adjust as needed */
-        height: 60px; /* Adjust as needed */
-        left: 30vw;
-    }
-
     .bubble {
         padding: 15px;
         width: 16vw;
@@ -1106,6 +1107,11 @@ $gray: #429391;
         height: 5vw;
         margin-bottom: 2px;
    }
+
+    #availabilityimage::before {
+        content: "";
+        background-image: url(images/image10_small.webp);
+    }
 
     #availability {
         min-height: 400px;
@@ -1168,7 +1174,7 @@ $gray: #429391;
         font-size: 9px;
         margin: 0px;
     }
-    
+
     .error-message-container, .error-message {
         position: unset;
         text-align: center;
@@ -1371,9 +1377,18 @@ $gray: #429391;
     margin: 10px 0;
    }
 
-   .review-logo {
-      width: 70px; /* Adjust as needed */
+
+
+    /*.review-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
     }
+
+    .review-logo {
+        align-self: flex-end;
+    }*/
 
     .bubble {
         padding: 15px;
@@ -1391,6 +1406,11 @@ $gray: #429391;
         height: 5vw;
         margin-bottom: 2px;
    }
+
+    #availabilityimage::before {
+        content: "";
+        background-image: url(images/image10_medium.webp);
+    }
 
     #availability {
         min-height: 400px;
