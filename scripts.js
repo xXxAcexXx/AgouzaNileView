@@ -23,6 +23,7 @@ function loadGoogleMapsApi(callback) {
   if (!window.google) {
     const googleMapsApiScript = document.createElement("script");
     googleMapsApiScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCSqTA1pqLElmDKcdgqAcPG-uMrAznKAlQ&callback=" + callback;
+    googleMapsApiScript.async = true; // Use async attribute
     document.body.appendChild(googleMapsApiScript);
   } else {
     window[callback]();
