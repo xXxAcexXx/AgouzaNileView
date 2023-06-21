@@ -231,6 +231,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const guestCount = document.getElementById("guests").value; // New Line
         const credentialsElement = document.getElementById("cred-wrapper");
         const discountdisplay = document.getElementById('discount-banner');
+        const airbnbdisplay = document.getElementById('airbnb');
 
         if (!checkinDatepicker || !checkoutDatepicker) {
             return;
@@ -240,15 +241,16 @@ window.addEventListener("DOMContentLoaded", () => {
         const checkoutDateInstance = checkoutDatepicker;
 
         //const blockedPeriods = getBlockedPeriods(checkinDateInstance.latestSelectedDateObj, checkoutDateInstance.latestSelectedDateObj);
-
         extraGuestsFeesElement.innerHTML=''
         if (isValidDateRange(checkinDateInstance, checkoutDateInstance)) {
             if (checkBlockedDates(checkinDateInstance, checkoutDateInstance)) {
+                airbnbdisplay.style.display ="flex";
                 blockedMessage.style.display = "block";
                 priceInfo.style.display = "none";
                 bookNowButton.disabled = true;
                 credentialsElement.style.display="none";
             } else {
+                airbnbdisplay.style.display ="none";
                 blockedMessage.style.display = "none";
                 const { discountedDailyRate, discountedAccomodationCost, discountedTotalPrice, accommodationCost, totalPrice, days, dailyRate, cleaningFees, extraGuestsCost } = calculatePrice(checkinDateInstance.latestSelectedDateObj, checkoutDateInstance.latestSelectedDateObj);
                 cleaningFeesElement.innerHTML = `$<span>${cleaningFees}</span>`;
@@ -281,6 +283,7 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         } 
         else {
+            airbnbdisplay.style.display ="flex";
             blockedMessage.style.display = "none";
             priceInfo.style.display = "none";
             bookNowButton.disabled = true;
@@ -305,7 +308,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const whatsappInput = document.getElementById('whatsapp');
         if(validateCredentials(emailInput.value, whatsappInput.value)) {
             document.getElementById('cred-warning').style.display = 'none';
-            sendBookingEmail();
+            //sendBookingEmail();
             openBookingModal();
     // When the user clicks the button, open the popup
         
@@ -318,7 +321,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector('.enquiries-form form').addEventListener('submit', function(event) {
         event.preventDefault();
-        sendSubmitEmail();
+        //sendSubmitEmail();
         openModal();
 
     });

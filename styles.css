@@ -558,6 +558,8 @@ img {
 
 .review-logo {
     align-self: flex-end;
+    width: 70px; /* Adjust as needed */
+    height: 60px; /* Adjust as needed */
 }
 
 
@@ -588,12 +590,6 @@ img {
   color: #f1c40f;
   font-size: 18px;
 }
-
-.review-logo {
-  width: 70px; /* Adjust as needed */
-  height: 60px; /* Adjust as needed */
-}
-
 
 /* Captions Section */
 .info-bubbles {
@@ -649,6 +645,34 @@ img {
 }
 
 /* Availability section */
+#airbnb {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.airbnb-button {
+    background-color: white;
+    border: none;
+    padding: 4px 8px;
+    text-align: center;
+    display: flex;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 30px;
+    color: #FF5A5F;
+}
+
+.airbnb-button:hover {
+    background-color: lightgrey;
+}
+
+.airbnb-logo {
+    height: 60px;
+    width: 70px;
+}
+
 #availability {
     display: flex;
     flex-direction: column;
@@ -1157,6 +1181,15 @@ $gray: #429391;
         background-color: white;
     }
 
+    #airbnb {
+        font-size: 1.8vw;
+    }
+
+    .airbnb-logo {
+        height: 5vw;
+        width: 10vw;
+    }
+
     #prices {
         position: unset;
         text-align: center;
@@ -1455,6 +1488,15 @@ $gray: #429391;
         padding-right: 3vw;
         color: black;
         background-color: white;
+    }
+
+    #airbnb {
+        font-size: 1.7vw;
+    }
+
+    .airbnb-logo {
+        height: 5vw;
+        width: 10vw;
     }
 
      #prices {
