@@ -9,6 +9,14 @@
 	<meta name="robots" content="index, follow">
 	<meta name="googlebot" content="index, follow">
 
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-WGPD8S4');</script>
+<!-- End Google Tag Manager -->
+
 	<!-- Structured data -->
 
 	<script type="application/ld+json">
@@ -234,6 +242,47 @@
       gtag('js', new Date());
       gtag('config', 'G-G544H2F93T');
     </script>
+
+    <!-- Event snippet for Booking Request conversion page -->
+	<script>
+	  gtag('event', 'conversion', {'send_to': 'AW-11219251492/9w_rCMGVl7AYEKTi4OUp'});
+	</script>
+
+	<!-- Event snippet for Booking Request conversion page
+	In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+	<script>
+	function bookinggtag_report_conversion(url) {
+	  var callback = function () {
+	    if (typeof(url) != 'undefined') {
+	      window.location = url;
+	    }
+	  };
+	  gtag('event', 'conversion', {
+	      'send_to': 'AW-11219251492/9w_rCMGVl7AYEKTi4OUp',
+	      'event_callback': callback
+	  });
+	  return false;
+	}
+	</script>
+
+	<!-- Event snippet for Inquiry conversion page
+	In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+	<script>
+	function inquirygtag_report_conversion(url) {
+	  var callback = function () {
+	    if (typeof(url) != 'undefined') {
+	      window.location = url;
+	    }
+	  };
+	  gtag('event', 'conversion', {
+	      'send_to': 'AW-11219251492/BjfFCL6Vl7AYEKTi4OUp',
+	      'event_callback': callback
+	  });
+	  return false;
+	}
+	</script>
+
+
 
     <!-- Scripts -->
 

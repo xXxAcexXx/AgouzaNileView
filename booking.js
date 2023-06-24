@@ -309,6 +309,7 @@ window.addEventListener("DOMContentLoaded", () => {
         if(validateCredentials(emailInput.value, whatsappInput.value)) {
             document.getElementById('cred-warning').style.display = 'none';
             sendBookingEmail();
+            bookinggtag_report_conversion();
             openBookingModal();
     // When the user clicks the button, open the popup
         
@@ -322,6 +323,7 @@ window.addEventListener("DOMContentLoaded", () => {
     document.querySelector('.enquiries-form form').addEventListener('submit', function(event) {
         event.preventDefault();
         sendSubmitEmail();
+        inquirygtag_report_conversion();
         openModal();
 
     });
