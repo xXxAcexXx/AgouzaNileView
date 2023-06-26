@@ -895,7 +895,6 @@ $gray: #429391;
 }
 
 .form__field {
-  font-family: inherit;
   width: 100%;
   border: 0;
   border-bottom: 1px solid black;
