@@ -45,6 +45,30 @@ footer {
     z-index: -1;
 }
 
+@keyframes fadeInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInFromDiagonal {
+    0% {
+        opacity: 0;
+        transform: translateY(25%);
+        transform: translateX(25%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        transform: translateX(0);
+    }
+}
+
 .footer-email-location {
   display: flex;
   flex-direction: column;
@@ -228,11 +252,12 @@ body::before {
     padding: 12px 24px;
     border-radius: 5px;
     font-size: 1em;
+    position: relative;
+    display: flex;
     transition: 0.3s;
-    position: absolute;
-    bottom: 20px;
-    right: 10px;
-    width: auto;
+    max-width: fit-content;
+    justify-content: flex-end;
+    margin: auto;
 }
 
 .button:hover {
@@ -383,6 +408,7 @@ main {
 section {
     padding: 20px 20px;
     border-radius: 5px;
+    margin-top: 15px;
     margin-bottom: 15px;
     position: relative;
 }
@@ -436,7 +462,7 @@ section::after {
     padding-left: 20px;
     color: black;
     font-style: bolder;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     width: 100%;
 }
 
@@ -452,10 +478,11 @@ section::after {
 .image-container img {
     width: 100%;
     height: auto;
+    border-radius: 10%;
     object-fit: cover;
-    border-radius: 20%;
-    box-shadow: 0 0 0 2px #429391;
     background-blend-mode: multiply;
+    animation: fadeInFromBottom 2s ease-out;
+
 }
 
 .facilities {
@@ -463,6 +490,8 @@ section::after {
   flex-wrap: wrap;
   flex-direction: row;
   gap: 10px; /* Adjust the gap between facility icons and captions as needed */
+  margin-bottom: 65px;
+  animation: fadeInFromDiagonal 4s ease-out;
 }
 
 .facilities span {
@@ -484,6 +513,45 @@ section::after {
 
 
 /* Gallery section*/
+
+.slick-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+.slick-container:hover .slick-prev,
+.slick-container:hover .slick-next {
+    opacity: 1;
+}
+
+
 .image-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -493,8 +561,8 @@ section::after {
 .image-grid img {
     border: 1px solid #429391;
     border-radius: 10px;
+    animation: fadeInFromBottom 2s ease-out;
 }
-
 
 img {
     width: 100%;
@@ -1021,6 +1089,10 @@ $gray: #429391;
 
 @media (max-width: 480px){
 
+    .image-grid {
+        display: block;
+    }
+
     #discount-banner {
         font-size: 9px;
     }
@@ -1072,6 +1144,7 @@ $gray: #429391;
         max-height: 37px;
         height: auto;
         padding: 5px;
+        margin-right: 16px;
     }
 
     #description h2{
@@ -1305,6 +1378,10 @@ $gray: #429391;
 
 @media (min-width: 481px) and (max-width: 1044px) {
 
+    .image-grid {
+        display: block;
+    }
+
     #discount-banner {
         font-size: 16px;
     }
@@ -1315,7 +1392,6 @@ $gray: #429391;
     align-items: center;
     padding: 10px;
     display: flex;
-    position: absolute !important;
   }
 
   .headerlogo img{

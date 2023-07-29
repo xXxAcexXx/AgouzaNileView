@@ -285,12 +285,17 @@
 	</script>
 
 
-
     <!-- Scripts -->
 
+	<!-- Add the slick-theme.css if you want default styling -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+
+    <!-- Add the slick.js file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+	<script src="slick.js"></script>
     <script src="scripts.js" defer></script>
     <script src="booking.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" crossorigin="anonymous"></script>
     <script src="translation.js"></script>
     <script src="https://unpkg.com/@emailjs/browser@3/dist/email.min.js"></script>
 	<script type="text/javascript">
@@ -350,8 +355,6 @@
 
         <section id="description" class="section-divider">
         	<div>
-	            <h1>Welcome to Agouza Nile View Apartment</h1>
-	            <h2>Experience unparalleled Nile views from our centrally-located apartment, nestled amidst Egypt's most iconic landmarks. Immerse yourself in a captivating fusion of breathtaking panoramas and cultural treasures, all at your doorstep</h2>
 	            <div class="list-and-images">
 	            	<div class="image-container">
 		                <picture>
@@ -418,20 +421,30 @@
         <section id="gallery" class="section-divider">
 
         	<h2>Gallery</h2>
-		    <div class="image-grid">
-		        <a href="images/image2_big.webp" data-lightbox="roadtrip">
-		            <img src="images/image2_small.webp" loading="lazy" alt="Master Bedroom of Agouza Nile View Apartment">
-		        </a>
-		        <a href="images/image3_big.webp" data-lightbox="roadtrip">
-		            <img src="images/image3_small.webp" loading="lazy" alt="Hall of Agouza Nile View Apartment">
-		        </a>
-		        <a href="images/image4_big.webp" data-lightbox="roadtrip">
-		            <img src="images/image4_small.webp" loading="lazy" alt="Salon of Agouza Nile View Apartment">
-		        </a>
-		        <a href="images/image5_big.webp" data-lightbox="roadtrip">
-		            <img src="images/image5_small.webp" loading="lazy" alt="Second bedroom of Agouza Nile View Apartment">
-		        </a>
-		        <a href="images/image6_big.webp" data-lightbox="roadtrip">
+        	<div class="slick-container">
+	        	<div class="image-grid">
+			        <div>
+			        	<a href="images/image2_big.webp" data-lightbox="roadtrip">
+			            	<img src="images/image2_small.webp" loading="lazy" alt="Master Bedroom of Agouza Nile View Apartment">
+			        	</a>
+			    	</div>
+			    	<div>
+				        <a href="images/image3_big.webp" data-lightbox="roadtrip">
+				            <img src="images/image3_small.webp" loading="lazy" alt="Hall of Agouza Nile View Apartment">
+				        </a>
+			        </div>
+			        <div>
+				        <a href="images/image4_big.webp" data-lightbox="roadtrip">
+				            <img src="images/image4_small.webp" loading="lazy" alt="Salon of Agouza Nile View Apartment">
+				        </a>
+			        </div>
+			        <div>
+				        <a href="images/image5_big.webp" data-lightbox="roadtrip">
+				            <img src="images/image5_small.webp" loading="lazy" alt="Second bedroom of Agouza Nile View Apartment">
+				        </a>
+			        </div>
+			    </div>
+			        <!-- <a href="images/image6_big.webp" data-lightbox="roadtrip">
 		            <img src="images/image6_small.webp" loading="lazy" alt="Living room of Agouza Nile View Apartment">
 		        </a>
 		        <a href="images/image7_big.webp" data-lightbox="roadtrip">
@@ -455,7 +468,7 @@
 		        <a href="images/image13_big.webp" data-lightbox="roadtrip">
 		            <img src="images/image13_small.webp" loading="lazy" alt="Bathroom of Agouza Nile View Apartment">
 		        </a>
-		        <!-- Repeat for other images... -->
+		        Repeat for other images... -->
 		    </div>
         </section>
 
