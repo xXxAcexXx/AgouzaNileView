@@ -1,0 +1,282 @@
+@media (max-width: 1024px) {
+  header {
+    overflow: hidden;
+  }
+  header .container {
+    position: relative;
+  }
+  header .container .header-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    color: #000 !important;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    left: 200%;
+    top: 0;
+    z-index: 999999999;
+    transition: 1s ease;
+  }
+  header .container .header-bottom ul {
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    background-color: #0e385d;
+    justify-content: center;
+    align-items: center;
+  }
+  header .container .active-menu {
+    left: 0;
+  }
+  header .container .line {
+    display: none;
+  }
+  .header-top .row .burger {
+    display: flex !important;
+    font-size: 2em;
+    color: #fff;
+    z-index: 10000000000000000000000000000000000000000000000;
+  }
+  .header-top .row .burger .close {
+    display: none;
+  }
+  .header-top .row .site-logo {
+    width: 15em !important;
+  }
+  .landign .info p {
+    font-size: 0.9em;
+  }
+  .landign .swiper-slide:nth-child(1) img {
+    content: url(./images/nile_view_medium.webp);
+  }
+  .landign .swiper-slide:nth-child(2) img {
+    content: url(./images/nile_view2_medium.webp);
+  }
+  .landign .swiper-slide:nth-child(3) img {
+    content: url(./images/Reception_medium.webp);
+  }
+  .about .about-info {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: unset;
+    justify-content: unset;
+    width: 100%;
+  }
+  .about .about-info .words {
+    justify-content: unset;
+  }
+  .info-bubbles .bubble .icon {
+    max-width: 50px !important;
+    max-height: 50px !important;
+  }
+  .info-bubbles .bubble p {
+    font-size: 1em;
+  }
+  .contact-bar {
+    padding: 3em !important;
+  }
+  .contact-bar .title h2 {
+    font-size: 1.3em;
+  }
+  .contact-bar .title h3 {
+    font-size: 1.1em;
+  }
+  .contact-bar .contacts h3 {
+    font-size: 1.2em;
+  }
+  .services {
+    gap: 3em;
+  }
+  .services .container .title h2 {
+    font-size: 3.8em !important;
+  }
+  .services .container .services-info li {
+    font-size: 1em !important;
+  }
+  .services .the-rest .rest-serv p {
+    font-size: 1em;
+  }
+  footer .logo .image {
+    width: 13em;
+  }
+  footer .logo .copy-right p {
+    font-size: 0.9em;
+  }
+  .confirm-popup .cont h2 {
+    font-size: 1.2em;
+  }
+  .confirm-popup .cont h3 {
+    font-size: 1em;
+  }
+  .availability .availability-book .popup-container .popup .contact-info .input-cont input {
+    width: 100%;
+  }
+  .about .about-info .images .swiper-any {
+    width: 16em;
+    height: 22em;
+  }
+  .reviews .review-swiper .swiper-slide .reviewp {
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  .airbnb a img {
+    width: 80%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media (min-width: 765px) and (max-width: 1024px) {
+  .grid-item:nth-child(1) a img {
+    content: url(./images/nile_view_medium.webp);
+  }
+  .grid-item:nth-child(2) a img {
+    content: url(./images/room1_medium.webp);
+  }
+  .grid-item:nth-child(3) a img {
+    content: url(./images/dinner_table_medium.webp);
+  }
+  .grid-item:nth-child(4) a img {
+    content: url(./images/living_room_medium.webp);
+  }
+  .grid-item:nth-child(5) a img {
+    content: url(./images/Hall_medium.webp);
+  }
+  .grid-item:nth-child(6) a img {
+    content: url(./images/room2_medium.webp);
+  }
+  .grid-item:nth-child(7) a img {
+    content: url(./images/nile_view2_medium.webp);
+  }
+  .grid-item:nth-child(9) a img {
+    content: url(./images/room3_medium.webp);
+  }
+  .grid-item:nth-child(10) a img {
+    content: url(./images/Reception_medium.webp);
+  }
+  .grid-item:nth-child(12) a img {
+    content: url(./images/kitchen_medium.webp);
+  }
+  .grid-item:nth-child(11) a img {
+    content: url(./images/bathroom_medium.webp);
+  }
+}
+@media (max-width: 766.98px) {
+  .grid-item:nth-child(1) a img {
+    content: url(./images/nile_view_small.webp);
+  }
+  .grid-item:nth-child(2) a img {
+    content: url(./images/room1_small.webp);
+  }
+  .grid-item:nth-child(3) a img {
+    content: url(./images/dinner_table_small.webp);
+  }
+  .grid-item:nth-child(4) a img {
+    content: url(./images/living_room_small.webp);
+  }
+  .grid-item:nth-child(5) a img {
+    content: url(./images/Hall_small.webp);
+  }
+  .grid-item:nth-child(6) a img {
+    content: url(./images/room2_small.webp);
+  }
+  .grid-item:nth-child(7) a img {
+    content: url(./images/nile_view2_medium.webp);
+  }
+  .grid-item:nth-child(9) a img {
+    content: url(./images/room3_small.webp);
+  }
+  .grid-item:nth-child(10) a img {
+    content: url(./images/Reception_small.webp);
+  }
+  .grid-item:nth-child(12) a img {
+    content: url(./images/kitchen_small.webp);
+  }
+  .grid-item:nth-child(11) a img {
+    content: url(./images/bathroom_small.webp);
+  }
+}
+@media (max-width: 765px) {
+  .availability .availability-book .popup-container .popup {
+    height: unset;
+  }
+  .landign .info {
+    gap: 3em;
+  }
+  .landign .info p {
+    font-size: 1.7em;
+    padding: 0 0.6em;
+  }
+  .contact .info-cont .info {
+    width: 14em;
+    gap: 1em;
+  }
+  .contact .info-cont .info p {
+    font-size: 0.9em;
+  }
+  .contact-bar .title h2 {
+    font-size: 1em !important;
+  }
+  .contact-bar .title h3 {
+    font-size: 0.9em !important;
+  }
+  .contact-bar .contacts h3 {
+    font-size: 1em !important;
+  }
+  .gallery .picture .grid-item {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .gallery .picture .grid-item:nth-child(3n-2) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .info-bubbles {
+    padding: 3em;
+  }
+  .info-bubbles p {
+    font-size: 0.8em !important;
+  }
+  .rest-serv {
+    width: calc((100% - 1em) / 5) !important;
+  }
+  .rest-serv p {
+    font-size: 0.8em !important;
+  }
+  .contact .info-cont .info {
+    width: 12em;
+  }
+  .contact .info-cont .info p {
+    font-size: 0.8em;
+  }
+  .contact .contact-container {
+    width: 75%;
+  }
+  footer .logo .image {
+    width: 10em;
+  }
+  footer .copy-right p {
+    font-size: 0.8em;
+  }
+}
+@media (min-width: 495px) and (max-width: 660px) {
+  body {
+    font-size: 12px !important;
+  }
+}
+@media (min-width: 371px) and (max-width: 494.98px) {
+  body {
+    font-size: 9px !important;
+  }
+}
+@media (max-width: 370.98px) {
+  body {
+    font-size: 8px !important;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1197.98px) {
+  body {
+    font-size: 14px !important;
+  }
+}/*# sourceMappingURL=mobile-style.css.map */
