@@ -20,6 +20,7 @@ header {
             }
 
             .left-content {
+                position: relative;
                 ul {
                     list-style: none;
                     display: flex;
@@ -79,6 +80,32 @@ header {
                             top: 150%;
                         }
                     }
+                }
+
+                .translate {
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                    background: #fff;
+                    padding: 2em;
+                    transition: 1s ease;
+                    z-index: 99;
+                    gap: 2em;
+                    font-weight: 800;
+                    border-radius: 1em;
+                    right: 0;
+                    top: 500%;
+                    border: 2px solid $orange;
+                    opacity: 0;
+                    a {
+                        text-decoration: none;
+                        color: $primary-color;
+                    }
+                }
+
+                .active-translate {
+                    top: 150%;
+                    opacity: 1;
                 }
             }
 

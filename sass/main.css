@@ -1,3 +1,13 @@
+.landign .info h3::before, .landign .info h2::before, .landign .info p::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(20px);
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.7019607843);
+}
+
 .availability .availability-book .date-inputs .input-wrapper input, .availability .availability-book .date-inputs .input-wrapper select {
   padding: 1em;
   border: 1px solid #000;
@@ -78,6 +88,9 @@ header .container .row .site-logo {
   display: flex;
   width: 20em;
 }
+header .container .row .left-content {
+  position: relative;
+}
 header .container .row .left-content ul {
   list-style: none;
   display: flex;
@@ -135,6 +148,30 @@ header .container .row .left-content ul li .call-list-open {
   opacity: 1;
   top: 150%;
 }
+header .container .row .left-content .translate {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 2em;
+  transition: 1s ease;
+  z-index: 99;
+  gap: 2em;
+  font-weight: 800;
+  border-radius: 1em;
+  right: 0;
+  top: 500%;
+  border: 2px solid #fca22a;
+  opacity: 0;
+}
+header .container .row .left-content .translate a {
+  text-decoration: none;
+  color: #0e385d;
+}
+header .container .row .left-content .active-translate {
+  top: 150%;
+  opacity: 1;
+}
 header .container .row .burger {
   display: none;
 }
@@ -180,7 +217,6 @@ header .container .header-bottom ul a:hover {
 .landign .swiper {
   width: 100%;
   height: 100%;
-  filter: blur(3px);
 }
 .landign .swiper img {
   width: 100%;
@@ -199,8 +235,10 @@ header .container .header-bottom ul a:hover {
 }
 .landign .info h3 {
   font-size: 1.5em;
+  position: relative;
 }
 .landign .info h2 {
+  position: relative;
   font-size: 4em;
   font-weight: 800;
 }
@@ -211,6 +249,7 @@ header .container .header-bottom ul a:hover {
   border-radius: 0.5em;
 }
 .landign .info p {
+  position: relative;
   font-size: 1.1em;
   font-weight: 800;
 }
@@ -282,6 +321,11 @@ header .container .header-bottom ul a:hover {
 .availability .availability-book .bnb .airbnb a::before {
   width: 9.5em;
   height: 4em;
+}
+.availability .availability-book .bnb .airbnb a img {
+  width: 75%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .availability .availability-book .close-price {
   display: none !important;
@@ -1005,12 +1049,14 @@ footer .logo .copy-right {
 }
 footer .logo .copy-right p {
   font-weight: 600;
+  font-size: 0.8em;
 }
 footer .logo .copy-right a {
   text-align: center;
   text-decoration: none;
   font-weight: 700;
   color: orange;
+  font-size: 0.8em;
 }
 footer .contacts {
   display: flex;
