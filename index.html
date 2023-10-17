@@ -11,7 +11,7 @@
 	<link rel="shortcut icon" href="https://www.agouzanileview.com/images/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://www.agouzanileview.com/images/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="images/icon.png">
-	<link rel="manifest" href="https://www.agouzanileview.com/site.webmanifest">
+	<link rel="manifest" href="site.webmanifest" crossorigin="use-credentials">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <link href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/normalize.css">
@@ -50,32 +50,32 @@
                                 <i class="fa-solid fa-globe"></i>
                                 <div class="translate">
                                     <div class="lang">
-                                        <a href="#">
+                                        <a href="#" data-lang="en">
                                             English
                                         </a>
                                     </div>
                                     <div class="lang">
-                                        <a href="#">
+                                        <a href="#" data-lang="ar">
                                             العربيه
                                         </a>
                                     </div>
                                     <div class="lang">
-                                        <a href="#">
+                                        <a href="#" data-lang="es">
                                             Espanol
                                         </a>
                                     </div>
                                     <div class="lang">
-                                        <a href="#">
+                                        <a href="#" data-lang="fr">
                                             Fransais
                                         </a>
                                     </div>
                                     <div class="lang">
-                                        <a href="#">
+                                        <a href="#" data-lang="it">
                                             Italiano
                                         </a>
                                     </div>
                                     <div class="lang">
-                                        <a href="#">
+                                        <a href="#" data-lang="de">
                                             Deutch
                                         </a>
                                     </div>
@@ -269,19 +269,15 @@
     <section class="about" id="about">
         <div class="title">
             <h2>
-                About Us
+                Welcome To Your Next Home
             </h2>
-
-            <h3>
-                WELCOME TO YOUR NEXT HOME
-            </h3>
         </div>
 
         <div class="about-info">
             <div class="words">
                 <div class="info-title">
                     <h3>
-                        About<br>Company
+                        About<br>Us
                     </h3>
                 </div>
                 <ul>
@@ -289,10 +285,9 @@
                         <p>
                             AgouzaNileView is a premier house rental company situated in the heart of Agouza, Giza.<br>
                             With over 5 years in the business, we pride ourselves on our exceptional service<br>
-                            Our spacious rooms ensure a comfortable stay for our guests.<br>
                             our property is the ideal centralized base for exploring the wonders of Cairo.<br>
-                            Our dedicated staff, is available 24/7, ensuring that our guests' needs are always met.<br> 
-                            Whether you're here for a short visit or looking for long-term accommodation, AgouzaNileView promises a memorable stay
+                            Our dedicated staff, is available 24/7<br> 
+                            Looking for a short visit or long-term accommodation, AgouzaNileView promises a memorable stay
                         </p>
 
                         <ul>
@@ -303,10 +298,7 @@
                                 boasting a 4-star rating on platforms like Airbnb and Booking.com.
                             </li>
                             <li>
-                                Located right in the center of Egypt.
-                            </li>
-                            <li>
-                                4/7 Professional staff, fluent in Arabic, English, and Spanish.
+                                24/7 Professional staff, fluent in Arabic, English, and Spanish.
                             </li>
                             <li>
                                 Book Your Memorable Stay now.
@@ -489,7 +481,7 @@
                 Do you want to Rent your House
             </h2>
             <h3>
-                Call us and list your property here
+                Contact us and list your property here
             </h3>
         </div>
 
@@ -753,9 +745,9 @@
                         <p>
                             Very beautiful apartment at the last floor of the high building,<br>
                             everything was working, amazing view on Nile from the<br>
-                            windows. Not far from the apartment is a national circus with lions<br>
-                            and tigers, but it was not disturbing because we like circus and<br>
-                            music and we visited the circus, and performance was very impressive.
+                            windows. Not far from the apartment is a national circus<br>
+                            we like circus and music and we<br>
+                            visited the circus, and performance was very impressive.
                         </p>
                     </div>
 
@@ -885,18 +877,18 @@
                     </div>
                     <div class="phone">
                         <label for="phone" id="phone-label">WhatsApp Number</label>
-                        <input type="text" id="phone" placeholder="whatApp Number" class="">
+                        <input type="text" id="phone" placeholder="Your Whatsapp Number" class="">
                     </div>
                 </div>
                 <div class="messages">
                     <div class="message">
-                        <label for="message">Message</label>
+                        <label for="message">Inquiry</label>
                         <input type="text" id="message">
                     </div>
 
                     <div class="fields" id="fields_contact">
                         <p>
-                            Email or Whatsapp needed 😊
+                            Your Email or Whatsapp needed 😊
                         </p>
                     </div>
                 </div>
@@ -988,5 +980,6 @@
     <script src="script/map.js"></script>
     <script src="script/smallScreen.js"></script>
     <script src="script/message.js"></script>
+    <script src="script/translation.js"></script>
 </body>
 </html>
