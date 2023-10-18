@@ -1,0 +1,10 @@
+{
+  "name": "Agouza Nile View",
+  "short_name": "agouzanileview",
+  "theme_color": "#000000",
+  "background_color": "#0e385d",
+  "display": "browser",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "https://agouzanileview.com/"
+}

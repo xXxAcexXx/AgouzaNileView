@@ -8,8 +8,14 @@
 
 
 <url>
-  <loc>https://www.agouzanileview.com</loc>
-  <lastmod>2023-06-05T16:13:48+00:00</lastmod>
+  <loc>https://agouzanileview.com/</loc>
+  <lastmod>2023-10-17T10:37:48+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://agouzanileview.com/index.html</loc>
+  <lastmod>2023-10-17T10:37:48+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 
 
