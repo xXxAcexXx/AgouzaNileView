@@ -319,20 +319,26 @@ function closeOutSide(el) {
 // Function to send email (Placeholder, you need to implement actual email sending logic)
 function sendEmailfunc () {
 
-    Email.send({
-        SecureToken : "2676c301-eece-44eb-b8e6-5f17b33d7f15",
-        To : 'agouzanileview@outlook.com',
-        From : `essam_3276@hotmail.com`,
-        Subject : "NEW BOOKING!",
-        Body :`
-            Email: ${emailInput.value == " " ? "Not Found" : emailInput.value} <br>
-            WhatsApp: ${whatsAppInput.value == " " ? "Not Found" : whatsAppInput.value} <br>
-            Check In: ${checkInDateInput.value} <br>
-            Check Out: ${checkOutDateInput.value} <br>
-            Guests: ${selectedElement.options[selectedElement.selectedIndex].value} <br>
-            Nights: ${calculateTotalDays()} <br>
-            TotalPrice: ${calculateAccommodationPrice().totalPrice}$ <br>
-            discout: ${calculateTotalDays() < 7 ? "There is no discount" : calculateAccommodationPrice().totalPriceWithDiscount}$ <br>
+    emailjs.send("service_u27ilov", "template_8e34b28",{
+        from_name: 'AgouzaNileView',
+            to_name: 'Ahmed The Owner',
+            message: `New Booking!
+            Email: ${emailInput.value == " " ? "Not Found" : emailInput.value}
+            WhatsApp: ${whatsAppInput.value == " " ? "Not Found" : whatsAppInput.value}
+            Check In: ${checkInDateInput.value}
+            Check Out: ${checkOutDateInput.value} 
+            Guests: ${selectedElement.options[selectedElement.selectedIndex].value}
+            Nights: ${calculateTotalDays()}
+            Total Price: ${calculateAccommodationPrice().totalPrice}$
+            Discounted Price: ${calculateTotalDays() < 7 ? "There is no discount" : calculateAccommodationPrice().totalPriceWithDiscount}$
+
+
         `
+    })
+    
+    .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+        console.log('FAILED...', error);
     });
 };

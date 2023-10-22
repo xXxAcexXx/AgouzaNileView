@@ -24,7 +24,7 @@
   color: #0e385d;
 }
 
-.confirm-popup .cont button, .contact .contact-container .submit button, .availability .availability-book .bnb .airbnb a, .availability .availability-book .booking, .landign .info a {
+.confirm-popup .cont button,.message-popup .cont button, .contact .contact-container .submit button, .availability .availability-book .bnb .airbnb a, .availability .availability-book .booking, .landign .info a {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,7 +38,7 @@
   gap: 0.75em;
   border-radius: 0.5em;
 }
-.confirm-popup .cont button::before, .contact .contact-container .submit button::before, .availability .availability-book .bnb .airbnb a::before, .availability .availability-book .booking::before, .landign .info a::before {
+.confirm-popup .cont button::before,.message-popup .cont button::before,  .contact .contact-container .submit button::before, .availability .availability-book .bnb .airbnb a::before, .availability .availability-book .booking::before, .landign .info a::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -51,7 +51,7 @@
   pointer-events: none;
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.confirm-popup .cont button::after, .contact .contact-container .submit button::after, .availability .availability-book .bnb .airbnb a::after, .availability .availability-book .booking::after, .landign .info a::after {
+.confirm-popup .cont button::after,.message-popup .cont button::after,  .contact .contact-container .submit button::after, .availability .availability-book .bnb .airbnb a::after, .availability .availability-book .booking::after, .landign .info a::after {
   content: "";
   z-index: -1;
   position: absolute;
@@ -60,13 +60,13 @@
   transform: translate3d(0, 0, 0) scale(0.95);
   filter: blur(20px);
 }
-.confirm-popup .cont button:hover::after, .contact .contact-container .submit button:hover::after, .availability .availability-book .bnb .airbnb a:hover::after, .availability .availability-book .booking:hover::after, .landign .info a:hover::after {
+.confirm-popup .cont button:hover::after,.message-popup .cont button:hover::after, .contact .contact-container .submit button:hover::after, .availability .availability-book .bnb .airbnb a:hover::after, .availability .availability-book .booking:hover::after, .landign .info a:hover::after {
   filter: blur(30px);
 }
-.confirm-popup .cont button:hover::before, .contact .contact-container .submit button:hover::before, .availability .availability-book .bnb .airbnb a:hover::before, .availability .availability-book .booking:hover::before, .landign .info a:hover::before {
+.confirm-popup .cont button:hover::before,.message-popup .cont button:hover::before, .contact .contact-container .submit button:hover::before, .availability .availability-book .bnb .airbnb a:hover::before, .availability .availability-book .booking:hover::before, .landign .info a:hover::before {
   transform: rotate(-180deg);
 }
-.confirm-popup .cont button:active::before, .contact .contact-container .submit button:active::before, .availability .availability-book .bnb .airbnb a:active::before, .availability .availability-book .booking:active::before, .landign .info a:active::before {
+.confirm-popup .cont button:active::before,.message-popup .cont button:active::before, .contact .contact-container .submit button:active::before, .availability .availability-book .bnb .airbnb a:active::before, .availability .availability-book .booking:active::before, .landign .info a:active::before {
   scale: 0.7;
 }
 
@@ -963,6 +963,12 @@ header .container .header-bottom ul a:hover {
   width: 100%;
   height: 65%;
 }
+.contact .contact-container .inputs .messages .message #message{
+  border: 1.7px solid gray;
+  padding: 2.2em;
+  border-radius: 0.6em;
+  outline: none;
+}
 .contact .contact-container .inputs .messages .message input {
   height: 100%;
 }
@@ -1047,6 +1053,42 @@ header .container .header-bottom ul a:hover {
   height: 3.5em;
 }
 
+.message-popup {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(211, 211, 211, 0.4784313725);
+}
+.message-popup .cont {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  text-align: center;
+  width: 50%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+  background: #0e385d;
+  color: #fff;
+  border-radius: 2em;
+  filter: drop-shadow(2px 4px 6px #000);
+}
+.message-popup .cont button {
+  margin-top: 1em;
+  width: 9em;
+  height: 3em;
+  padding: 1.2em;
+}
+.message-popup .cont button::before {
+  width: 9.5em;
+  height: 3.5em;
+}
+
 footer {
   display: flex;
   align-items: center;
@@ -1067,6 +1109,8 @@ footer .logo .image {
 }
 footer .logo .copy-right {
   display: flex;
+  position: absolute;
+  left: 45%;
   align-items: center;
   flex-direction: column;
   gap: 0.5em;

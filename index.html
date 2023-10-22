@@ -11,7 +11,6 @@
 	<link rel="shortcut icon" href="https://www.agouzanileview.com/images/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://www.agouzanileview.com/images/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="images/icon.png">
-	<link rel="manifest" href="site.webmanifest" crossorigin="use-credentials">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <link href="https://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/normalize.css">
@@ -883,7 +882,7 @@
                 <div class="messages">
                     <div class="message">
                         <label for="message">Inquiry</label>
-                        <input type="text" id="message">
+                        <textarea type="text" id="message" placeholder="Your Inquiry"> </textarea>
                     </div>
 
                     <div class="fields" id="fields_contact">
@@ -949,8 +948,7 @@
             </button>
         </div>
     </div>
-<!--
-<div class="message-popup">
+	<div class="message-popup">
         <div class="cont">
             <h2>
                 Enquiry submitted successfully!
@@ -960,17 +958,22 @@
             </h3>
 
             <p>Why not take a virtual stroll through our <a href="https://abnb.me/iIFlFt9EOAb" style="color:#FF5A5F; ">Airbnb</a> listing?</p>
-            <button id="conf2y-button">
+            <button id="conf2-button">
                 OK
             </button>
         </div>
-    </div>
--->
+	</div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://unpkg.com/@emailjs/browser@3/dist/email.min.js"></script>
+	<script type="text/javascript">
+		(function(){
+			emailjs.init("HRT462aC4tQ-nXcd5");
+		})();
+	</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="script/lightbox-plus-jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>

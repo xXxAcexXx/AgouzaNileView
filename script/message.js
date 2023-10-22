@@ -7,6 +7,8 @@ let mailLabel = document.querySelector("#mail-label");
 let phoneLabel = document.querySelector("#phone-label");
 let confPopup = document.querySelector(".confirm-popup");
 let confButton = document.querySelector("#conf-button");
+let messagePopup = document.querySelector(".message-popup");
+let messageButton = document.querySelector("#conf2-button");
 let fieldP = document.querySelector("#fields_contact");
 
 sendMessageButton.addEventListener("click", function () {
@@ -31,12 +33,14 @@ function validateInputs () {
     }
     else {
         sendEmail();
-        emailInputEle.value = " ";
-        whatsAppInputEle.value = " ";
-        nameInput.value = " ";
-        messageInput.value = " ";
+        //emailInputEle.value = " ";
+        //whatsAppInputEle.value = " ";
+        //nameInput.value = " ";
+        //messageInput.value = " ";
         confPopup.style.display= "flex";
+        messagePopup.style.display= "flex";
     }
+
 }
 
 function showEmptyFields () {
@@ -76,26 +80,31 @@ whatsAppInputEle.addEventListener("focus", function() {
 
 // Function to send email (Placeholder, you need to implement actual email sending logic)
 function sendEmail () {
-
-    Email.send({
-        SecureToken : "2676c301-eece-44eb-b8e6-5f17b33d7f15",
-        To : 'agouzanileview@outlook.com',
-        From : `Essam_3276@hotmail.com`,
-        Subject : "NEW ENQUIRY",
-        Body :`
-            name: ${nameInput.value == " " ? "Not Found" : nameInput.value} <br>
-            Email: ${emailInputEle.value == " " ? "Not Found" : emailInputEle.value} <br>
-            WhatsApp: ${whatsAppInputEle.value == " " ? "Not Found" : whatsAppInputEle.value} <br>
-            message:${messageInput.value == " " ? "Not Found" : messageInput.value} <br>
+	emailjs.send("service_u27ilov", "template_8e34b28",{
+        from_name: 'AgouzaNileView',
+            to_name: 'Ahmed The Owner',
+            message: `New Enquiry!
+            name: ${nameInput.value == " " ? "Not Found" : nameInput.value}
+            Email: ${emailInputEle.value == " " ? "Not Found" : emailInputEle.value}
+            WhatsApp: ${whatsAppInputEle.value == " " ? "Not Found" : whatsAppInputEle.value}
+            message:${messageInput.value == " " ? "Not Found" : messageInput.value}
             `
+    })
+
+    .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+        console.log('FAILED...', error);
     });
+    
 };
 
 // Event listener to close the popup when clicking outside
 window.addEventListener("click", closeOutSidePopup);
 function closeOutSidePopup(el) {
-    if(el.target == confPopup){
+    if(el.target == confPopup || el.target == messagePopup){
         confPopup.style.display= "none";
+        messagePopup.style.display= "none";
     };
 };
 
@@ -103,6 +112,11 @@ confButton.addEventListener("click", function() {
     closeConfirmPopup ();
 });
 
+messageButton.addEventListener("click", function() {
+    closeConfirmPopup ();
+});
+
 function closeConfirmPopup () {
     confPopup.style.display= "none";
+    messagePopup.style.display= "none";
 }
