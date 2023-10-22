@@ -1110,7 +1110,7 @@ footer .logo .image {
 footer .logo .copy-right {
   display: flex;
   position: absolute;
-  left: 45%;
+  left: 37%;
   align-items: center;
   flex-direction: column;
   gap: 0.5em;
