@@ -230,8 +230,10 @@ checkOutDateInput.addEventListener("change", function () {
 let popupContainer = document.querySelector(".popup-container");
 let popup = document.querySelector(".popup");
 let submitButton = document.querySelector("#submit-button");
+let bookernameInput = document.querySelector("#name");
 let emailInput = document.querySelector("#email");
 let whatsAppInput = document.querySelector("#whatsapp");
+let nameLable = document.querySelector(".name-lable span");
 let emailLable = document.querySelector(".email-lable span");
 let whatsAppLable = document.querySelector(".whatsapp-lable span");
 let confirmPopup = document.querySelector(".confirm-popup");
@@ -276,6 +278,7 @@ function validateInputsfunc () {
     else {
         popupContainer.classList.remove("open-popup-cont");
         sendEmailfunc();
+        //sendBookingfunc();
         confirmPopup.style.display= "flex";
     }
 }
@@ -313,9 +316,29 @@ window.addEventListener("click", closeOutSide);
 function closeOutSide(el) {
     if(el.target == popupContainer){
         popupContainer.classList.remove("open-popup-cont");
+        //popup.classList.remove("active-popup");
     };
 };
 
+
+function sendBookingfunc () {
+    emailjs.send("service_tbe0pu9", "template_8e34b28",{
+        from_name: 'AgouzaNileView',
+            to_name: `${bookernameInput.value}`,
+            to_email: `${emailInput.value}`,
+            message: `Check In: ${checkInDateInput.value}
+            Check Out: ${checkOutDateInput.value} 
+            Guests: ${selectedElement.options[selectedElement.selectedIndex].value}
+            Nights: ${calculateTotalDays()}
+            Total Price: ${calculateAccommodationPrice().totalPrice}$
+            Discounted Price: ${calculateTotalDays() < 7 ? "There is no discount" : calculateAccommodationPrice().totalPriceWithDiscount}$`
+    })
+    .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+        console.log('FAILED...', error);
+    });
+};
 // Function to send email (Placeholder, you need to implement actual email sending logic)
 function sendEmailfunc () {
 
@@ -323,6 +346,7 @@ function sendEmailfunc () {
         from_name: 'AgouzaNileView',
             to_name: 'Ahmed The Owner',
             message: `New Booking!
+            Name: ${bookernameInput.value}
             Email: ${emailInput.value == " " ? "Not Found" : emailInput.value}
             WhatsApp: ${whatsAppInput.value == " " ? "Not Found" : whatsAppInput.value}
             Check In: ${checkInDateInput.value}
