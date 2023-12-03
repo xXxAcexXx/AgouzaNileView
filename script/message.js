@@ -17,7 +17,7 @@ sendMessageButton.addEventListener("click", function () {
 
 
 const emailMessagePattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-const whatsappMassegePattern = /^([+]?)*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
+const whatsappMassegePattern = /^\+[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
 
 // Function to validate user inputs
 function validateInputs () {
