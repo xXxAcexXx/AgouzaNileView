@@ -27,17 +27,23 @@ let currentDay = currentDate.getDate() < 10 ? `0${currentDate.getDate()}` : curr
 let currentMonth = currentDate.getMonth() + 1 < 10  ? `0${currentDate.getMonth() + 1}` : currentDate.getMonth() + 1;
 let currentYear = currentDate.getFullYear();
 
+let futureDate = new Date(currentDate);
+futureDate.setDate(currentDate.getDate() + 2);
+
+// Format the day to always have two digits
+let futureDay = futureDate.getDate() < 10 ? `0${futureDate.getDate()}` : futureDate.getDate();
+
 // Format the current date as yyyy-mm-dd
-let formattedCurrentDate = [currentYear, currentMonth, currentDay].join("-");
+let formattedCurrentDate = [currentYear, currentMonth, futureDay].join("-");
 
 // Set the minimum and default value for the check-in date input
 checkInDateInput.setAttribute("min", formattedCurrentDate);
 checkInDateInput.setAttribute("value", formattedCurrentDate);
 
 // Calculate the date three days later
-let today = new Date(currentDate);
+let today = new Date(currentDate+2);
 let threeDaysLatter = new Date(today);
-threeDaysLatter.setDate(today.getDate() + 3);
+threeDaysLatter.setDate(today.getDate() + 5);
 
 // Format the check-out date three days later as yyyy-mm-dd
 let checkOutDay = threeDaysLatter.getDate() < 10 ? `0${threeDaysLatter.getDate()}` : threeDaysLatter.getDate();
