@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { selector: '#fields p', originalText: 'Email or Whatsapp needed for booking 😊' },
         { selector: '#submit-button', originalText: 'SUBMIT' },
         { selector: 'p#p1bubble', originalText: '500+ rentals on Airbnb and Booking.com' },
-        { selector: 'p#p2bubble', originalText: '4★ rating on Airbnb and Booking.com' },
+        { selector: 'p#p2bubble', originalText: 'Highly rated on Airbnb and Booking.com' },
         { selector: 'p#p3bubble', originalText: 'Staff is available 24/7 for Support' },
         { selector: 'p#p4bubble', originalText: '5+ years in the Business' },
         { selector: 'p#p5bubble', originalText: 'Long term accommodation discounts!' },
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { selector: '.services-info ul li:nth-child(1)', originalText: 'Open view on the Nile from all rooms.' },
         { selector: '.services-info ul li:nth-child(2)', originalText: 'Fully air-conditioned spacious rooms and modern ameneties.' },
         { selector: '.services-info ul li:nth-child(3)', originalText: 'Around 3.7 km from Tahrir square, The Egyptian museum and Cairo tower.' },
-        { selector: '.services-info ul li:nth-child(4)', originalText: 'The apartment has a large living room, a salon, 2 bedrooms, a kitchen,\na balcony and a bathroom.' },
+        { selector: '.services-info ul li:nth-child(4)', originalText: 'The apartment has a large living room and a seating area with an open direct view of the nile, a dinning area , 2 bedrooms, a kitchen, 2 balcony overlooking the nile and a bathroom.' },
         { selector: '.services-info ul li:nth-child(5)', originalText: 'Staff speaks Arabic, English and Spanish.Available for support 24/7.' },
 
         // Gallery section
