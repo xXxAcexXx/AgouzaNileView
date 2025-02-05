@@ -40,12 +40,12 @@ document.addEventListener('DOMContentLoaded', function () {
         { selector: 'a[href="#about"]', originalText: 'About' },
         { selector: 'a[href="#gellery"]', originalText: 'Gallery' },
         { selector: 'a[href="#reviews"]', originalText: 'Reviews' },
-        { selector: '.info a[href="#gellery"]', originalText: 'Gallery' },
         { selector: 'a[href="#location"]', originalText: 'Location' },
         { selector: 'a[href="#availability"]', originalText: 'Booking' },
         { selector: '.landign .info h3', originalText: 'Good Service is our passion' },
         { selector: '.landign .info h2', originalText: 'Welcome to Agouza Nile View' },
-        { selector: '.landign .info p', originalText: 'Restart, Refresh and Relax' },
+        //{ selector: '.landign .info p', originalText: 'Restart, Refresh and Relax' },
+        { selector: '.info a[href="#gellery"]', originalText: 'Gallery' },
         { selector: '.availability .title h2', originalText: 'For rates & Availability' },
         { selector: '#l1', originalText: 'Check-in date' },
         { selector: '#l2', originalText: 'Check-out date' },
@@ -103,7 +103,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
       elementsToTranslate.forEach(function (element) {
         if (lang === 'en') {
-        document.querySelector(element.selector).textContent = element.originalText;}
+          if (document.querySelector(element.selector).textContent) {
+
+        document.querySelector(element.selector).textContent = element.originalText;}}
       else {
         translateText(element.originalText, lang, function (translatedText) {
           document.querySelector(element.selector).textContent = translatedText;

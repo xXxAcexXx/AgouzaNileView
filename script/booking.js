@@ -117,7 +117,7 @@ function enableBookingButton () {
 function calculateAccommodationPrice () {
     let totalDays = calculateTotalDays(); // Calculate the total number of days 
     const cleaningFee = 10;
-    let basePricePerDay = 32;
+    let basePricePerDay = 36;
     const accommodationCost = Math.ceil(totalDays * basePricePerDay );
     const discountedDailyRate = Math.ceil(basePricePerDay * calculateDiscountPercent(totalDays));
     const discountedAccomodationCost = Math.ceil(totalDays * discountedDailyRate);
