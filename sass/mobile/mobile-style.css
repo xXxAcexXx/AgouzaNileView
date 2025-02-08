@@ -332,6 +332,9 @@
   .availability .availability-book .popup-container .popup {
     height: unset;
   }
+  .landign .info h2 {
+    font-size: 2.3em;
+  }
   .landign .info {
     gap: 3em;
   }
