@@ -1,7 +1,7 @@
 function loadGoogleMapsApi(callback) {
   if (!window.google) {
       const googleMapsApiScript = document.createElement("script");
-      googleMapsApiScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCSqTA1pqLElmDKcdgqAcPG-uMrAznKAlQ&callback=" + callback + "&loading=async";
+      googleMapsApiScript.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBFppqchhe6Jps5lQdjO5c3fc8uKr-cC7M&callback=" + callback + "&loading=async";
       googleMapsApiScript.async = true; // Use async attribute
       document.body.appendChild(googleMapsApiScript);
   } else {
