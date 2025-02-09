@@ -17,6 +17,7 @@ async function initMap() {
   const mapOptions = {
       center: { lat: 30.0587541, lng: 31.2140550 }, // Replace with the actual location coordinates of the apartment
       zoom: 15,
+      mapId: "6a14cff5c2b9520d", // Added Map ID
       mapTypeId: "satellite", // Use string instead of deprecated enum
   };
 
